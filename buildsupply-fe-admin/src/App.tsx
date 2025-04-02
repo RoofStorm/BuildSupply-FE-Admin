@@ -1,30 +1,19 @@
-import DashboardLayout from "@/pages/Dashboard";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppSidebar from "@/components/layout/Sidebar";
+import AppRoutes from "./routes";
 
 function App() {
   return (
-    <DashboardLayout>
-      <div>
-        <h1 className="text-2xl font-bold mb-4">Tổng quan</h1>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white p-4 shadow rounded">
-            <h2 className="text-lg font-bold">Tổng doanh thu</h2>
-            <p className="text-2xl text-green-600">₫50,000,000</p>
-          </div>
-          <div className="bg-white p-4 shadow rounded">
-            <h2 className="text-lg font-bold">Số đơn hàng</h2>
-            <p className="text-2xl text-red-600">120</p>
-          </div>
-          <div className="bg-white p-4 shadow rounded">
-            <h2 className="text-lg font-bold">Sản phẩm tồn kho</h2>
-            <p className="text-2xl text-yellow-600">8</p>
-          </div>
-          <div className="bg-white p-4 shadow rounded">
-            <h2 className="text-lg font-bold">Khách hàng mới</h2>
-            <p className="text-2xl text-blue-600">25</p>
-          </div>
+    <Router>
+      <div className="flex">
+        {/* Sidebar */}
+        <AppSidebar />
+        {/* Main Content */}
+        <div className="ml-64 p-8 flex-1 bg-gray-100 min-h-screen">
+            <AppRoutes/>
         </div>
       </div>
-    </DashboardLayout>
+    </Router>
   );
 }
 
