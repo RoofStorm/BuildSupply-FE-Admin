@@ -9,12 +9,12 @@ import Settings from "@/pages/Settings";
 function AppRoutes() {
   return (
     <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/customers" element={<Customers />} />
-        <Route path="/revenue" element={<Revenue />} />
-        <Route path="/settings" element={<Settings />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/orders" element={<Orders />} />
+      <Route path="/customers" element={<Customers />} />
+      <Route path="/revenue" element={<Revenue />} />
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   );
 }

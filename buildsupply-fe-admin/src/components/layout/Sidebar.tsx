@@ -1,74 +1,162 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+"use client";
+
+import * as React from "react";
 import {
-  faHome,
-  faBox,
-  faShoppingCart,
-  faUsers,
-  faChartBar,
-  faCog,
-} from "@fortawesome/free-solid-svg-icons";
+  ArrowUpCircleIcon,
+  BarChartIcon,
+  CameraIcon,
+  ClipboardListIcon,
+  DatabaseIcon,
+  FileCodeIcon,
+  FileIcon,
+  FileTextIcon,
+  FolderIcon,
+  HelpCircleIcon,
+  LayoutDashboardIcon,
+  ListIcon,
+  SearchIcon,
+  SettingsIcon,
+  UsersIcon,
+} from "lucide-react";
 
-// Menu items for the sidebar
-const menuItems = [
-  {
-    title: "Tổng quan",
-    url: "/",
-    icon: faHome,
-  },
-  {
-    title: "Sản phẩm",
-    url: "/products",
-    icon: faBox,
-  },
-  {
-    title: "Đơn hàng",
-    url: "orders",
-    icon: faShoppingCart,
-  },
-  {
-    title: "Khách hàng",
-    url: "customers",
-    icon: faUsers,
-  },
-  {
-    title: "Doanh thu",
-    url: "revenue",
-    icon: faChartBar,
-  },
-];
+import { NavMain } from "./NavMain";
+import { NavSecondary } from "./NavSecondary";
+import { NavUser } from "./NavUser";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/lib/sidebar";
 
-const settingsItem = {
-  title: "Cài đặt",
-  url: "setting",
-  icon: faCog,
+const data = {
+  user: {
+    name: "buildsupply",
+    email: "buildsupply@example.com",
+    avatar: "/avatars/buildsupply.jpg",
+  },
+  navMain: [
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: LayoutDashboardIcon,
+    },
+    {
+      title: "Products",
+      url: "/products",
+      icon: ListIcon,
+    },
+    {
+      title: "Orders",
+      url: "/orders",
+      icon: FolderIcon,
+    },
+    {
+      title: "Customers",
+      url: "/customers",
+      icon: UsersIcon,
+    },
+    {
+      title: "Revenue",
+      url: "/revenue",
+      icon: BarChartIcon,
+    },
+  ],
+  navClouds: [
+    {
+      title: "Capture",
+      icon: CameraIcon,
+      isActive: true,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Proposal",
+      icon: FileTextIcon,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Prompts",
+      icon: FileCodeIcon,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+  ],
+  navSecondary: [
+    {
+      title: "Settings",
+      url: "#",
+      icon: SettingsIcon,
+    },
+    {
+      title: "Get Help",
+      url: "#",
+      icon: HelpCircleIcon,
+    },
+    {
+      title: "Search",
+      url: "#",
+      icon: SearchIcon,
+    },
+  ],
 };
 
-function Sidebar() {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <aside className="w-64 bg-gray-800 text-white h-screen fixed">
-      <div className="p-4">
-        <h1 className="text-xl font-bold">BuildSupply</h1>
-      </div>
-      <nav className="mt-8">
-        <ul className="space-y-4">
-          {menuItems.map((item) => (
-            <li key={item.title} className="flex items-center px-4 py-2 hover:bg-gray-700">
-              <FontAwesomeIcon icon={item.icon} className="mr-3" />
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-        <div className="absolute bottom-4 w-full">
-          <ul>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-700">
-              <FontAwesomeIcon icon={settingsItem.icon} className="mr-3" />
-              <a href={settingsItem.url}>{settingsItem.title}</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </aside>
+    <Sidebar collapsible="offcanvas" {...props}>
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              className="data-[slot=sidebar-menu-button]:!p-1.5"
+            >
+              <a href="#">
+                <ArrowUpCircleIcon className="h-5 w-5" />
+                <span className="text-base font-semibold">BuildSupply</span>
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+        <NavSecondary items={data.navSecondary} className="mt-auto" />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={data.user} />
+      </SidebarFooter>
+    </Sidebar>
   );
 }
-
-export default Sidebar;

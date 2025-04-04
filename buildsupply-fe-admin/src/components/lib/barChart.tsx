@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts"
+import { TrendingUp } from "lucide-react";
+import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts";
 
 import {
   Card,
@@ -10,27 +10,27 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/lib/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
+} from "@/components/lib/chart";
 
 const chartData = [
-    { month: "January", desktop: 186 },
-    { month: "February", desktop: 305 },
-    { month: "March", desktop: 237 },
-    { month: "April", desktop: 73 },
-    { month: "May", desktop: 209 },
-    { month: "June", desktop: 214 },
-    { month: "July", desktop: 192 },
-    { month: "August", desktop: 256 },
-    { month: "September", desktop: 178 },
-    { month: "October", desktop: 310 },
-    { month: "November", desktop: 245 },
-    { month: "December", desktop: 289 },
+  { month: "January", desktop: 186 },
+  { month: "February", desktop: 305 },
+  { month: "March", desktop: 237 },
+  { month: "April", desktop: 73 },
+  { month: "May", desktop: 209 },
+  { month: "June", desktop: 214 },
+  { month: "July", desktop: 192 },
+  { month: "August", desktop: 256 },
+  { month: "September", desktop: 178 },
+  { month: "October", desktop: 310 },
+  { month: "November", desktop: 245 },
+  { month: "December", desktop: 289 },
 ];
 
 const chartConfig = {
@@ -38,7 +38,7 @@ const chartConfig = {
     label: "Desktop",
     color: "hsl(var(--chart-3))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export function BarChartLabel() {
   return (
@@ -48,7 +48,10 @@ export function BarChartLabel() {
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[200px] max-h-[500px] w-full">
+        <ChartContainer
+          config={chartConfig}
+          className="min-h-[200px] max-h-[500px] w-full"
+        >
           <BarChart
             accessibilityLayer
             data={chartData}
@@ -88,5 +91,5 @@ export function BarChartLabel() {
         </div>
       </CardFooter>
     </Card>
-  )
+  );
 }

@@ -1,15 +1,16 @@
-import Sidebar from "@/components/layout/Sidebar";
-import TopBar from "@/components/layout/TopBar";
+import { AppSidebar } from "@/components/layout/Sidebar";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SidebarInset, SidebarProvider } from "@/components/lib/sidebar";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex">
-      <Sidebar />
-      <div className="ml-64 p-4 flex-1 bg-gray-100 min-h-screen">
-        <TopBar />
-        <main className="p-6">{children}</main>
-      </div>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <SiteHeader />
+        <main className="p-3">{children}</main>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }
 
