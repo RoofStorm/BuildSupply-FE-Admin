@@ -1,6 +1,7 @@
 import { BarChartLabel } from "@/components/lib/barChart";
-import { SectionCards } from "./SectionCards";
-import { DataTableDemo } from "./DataTable";
+import { SectionCards } from "./sectionCards";
+import { DataTable } from "./DataTable";
+import data from "./data.json"
 
 function Dashboard() {
   return (
@@ -13,7 +14,7 @@ function Dashboard() {
         <BarChartLabel />
       </div>
       <div className="mt-8">
-        <DataTableDemo />
+        <DataTable data={data} />
       </div>
     </div>
   );

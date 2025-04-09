@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "@/pages/Dashboard/Dashboard";
-import Products from "@/pages/Products";
-import Orders from "@/pages/Orders";
-import Customers from "@/pages/Customers";
-import Revenue from "@/pages/Revenue";
-import Settings from "@/pages/Settings";
+import Dashboard from "@/pages/Dashboard/dashboard";
+import Products from "@/pages/Products/products";
+import Orders from "@/pages/orders";
+import Customers from "@/pages/customers";
+import Revenue from "@/pages/revenue";
+import Settings from "@/pages/settings";
 
 function AppRoutes() {
   return (

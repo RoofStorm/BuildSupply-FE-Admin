@@ -1,0 +1,272 @@
+[
+  {
+    "id": 6,
+    "name": "Tape Measure",
+    "sku": "TPM987",
+    "price": 40000,
+    "stock": 25,
+    "status": "Còn hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 7,
+    "name": "Electric Saw",
+    "sku": "ELS654",
+    "price": 2500000,
+    "stock": 3,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ điện"
+  },
+  {
+    "id": 8,
+    "name": "Paint Brush",
+    "sku": "PBR321",
+    "price": 20000,
+    "stock": 50,
+    "status": "Còn hàng",
+    "category": "Dụng cụ sơn"
+  },
+  {
+    "id": 9,
+    "name": "Ladder",
+    "sku": "LDR123",
+    "price": 500000,
+    "stock": 10,
+    "status": "Còn hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 10,
+    "name": "Safety Helmet",
+    "sku": "SHM456",
+    "price": 150000,
+    "stock": 0,
+    "status": "Hết hàng",
+    "category": "Bảo hộ lao động"
+  },
+  {
+    "id": 11,
+    "name": "Gloves",
+    "sku": "GLV789",
+    "price": 30000,
+    "stock": 40,
+    "status": "Còn hàng",
+    "category": "Bảo hộ lao động"
+  },
+  {
+    "id": 12,
+    "name": "Toolbox",
+    "sku": "TBX654",
+    "price": 700000,
+    "stock": 7,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 13,
+    "name": "Flashlight",
+    "sku": "FLH321",
+    "price": 120000,
+    "stock": 18,
+    "status": "Còn hàng",
+    "category": "Dụng cụ điện"
+  },
+  {
+    "id": 14,
+    "name": "Sandpaper",
+    "sku": "SDP987",
+    "price": 10000,
+    "stock": 100,
+    "status": "Còn hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 15,
+    "name": "Drill Bits Set",
+    "sku": "DBS123",
+    "price": 300000,
+    "stock": 12,
+    "status": "Còn hàng",
+    "category": "Dụng cụ điện"
+  },
+  {
+    "id": 16,
+    "name": "Hammer",
+    "sku": "HMR001",
+    "price": 80000,
+    "stock": 20,
+    "status": "Còn hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 17,
+    "name": "Screwdriver Set",
+    "sku": "SDS002",
+    "price": 150000,
+    "stock": 15,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 18,
+    "name": "Pliers",
+    "sku": "PLR003",
+    "price": 60000,
+    "stock": 30,
+    "status": "Còn hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 19,
+    "name": "Wrench Set",
+    "sku": "WRS004",
+    "price": 250000,
+    "stock": 8,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 20,
+    "name": "Circular Saw",
+    "sku": "CRS005",
+    "price": 3000000,
+    "stock": 5,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ điện"
+  },
+  {
+    "id": 21,
+    "name": "Work Gloves",
+    "sku": "WGL006",
+    "price": 50000,
+    "stock": 50,
+    "status": "Còn hàng",
+    "category": "Bảo hộ lao động"
+  },
+  {
+    "id": 22,
+    "name": "Safety Goggles",
+    "sku": "SGG007",
+    "price": 70000,
+    "stock": 25,
+    "status": "Còn hàng",
+    "category": "Bảo hộ lao động"
+  },
+  {
+    "id": 23,
+    "name": "Ear Protection",
+    "sku": "ERP008",
+    "price": 90000,
+    "stock": 10,
+    "status": "Sắp hết hàng",
+    "category": "Bảo hộ lao động"
+  },
+  {
+    "id": 24,
+    "name": "Paint Roller",
+    "sku": "PRL009",
+    "price": 30000,
+    "stock": 60,
+    "status": "Còn hàng",
+    "category": "Dụng cụ sơn"
+  },
+  {
+    "id": 25,
+    "name": "Extension Cord",
+    "sku": "EXC010",
+    "price": 200000,
+    "stock": 12,
+    "status": "Còn hàng",
+    "category": "Dụng cụ điện"
+  },
+  {
+    "id": 26,
+    "name": "Measuring Wheel",
+    "sku": "MWL011",
+    "price": 1500000,
+    "stock": 4,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 27,
+    "name": "Socket Set",
+    "sku": "SCS012",
+    "price": 500000,
+    "stock": 9,
+    "status": "Còn hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 28,
+    "name": "Wire Stripper",
+    "sku": "WST013",
+    "price": 120000,
+    "stock": 20,
+    "status": "Còn hàng",
+    "category": "Dụng cụ điện"
+  },
+  {
+    "id": 29,
+    "name": "Paint Tray",
+    "sku": "PTR014",
+    "price": 20000,
+    "stock": 70,
+    "status": "Còn hàng",
+    "category": "Dụng cụ sơn"
+  },
+  {
+    "id": 30,
+    "name": "Tool Belt",
+    "sku": "TBL015",
+    "price": 250000,
+    "stock": 6,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 31,
+    "name": "Angle Grinder",
+    "sku": "AGR016",
+    "price": 1800000,
+    "stock": 3,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ điện"
+  },
+  {
+    "id": 32,
+    "name": "Dust Mask",
+    "sku": "DSM017",
+    "price": 30000,
+    "stock": 100,
+    "status": "Còn hàng",
+    "category": "Bảo hộ lao động"
+  },
+  {
+    "id": 33,
+    "name": "Chisel Set",
+    "sku": "CHS018",
+    "price": 80000,
+    "stock": 25,
+    "status": "Còn hàng",
+    "category": "Dụng cụ"
+  },
+  {
+    "id": 34,
+    "name": "Heat Gun",
+    "sku": "HTG019",
+    "price": 900000,
+    "stock": 7,
+    "status": "Sắp hết hàng",
+    "category": "Dụng cụ điện"
+  },
+  {
+    "id": 35,
+    "name": "Paint Scraper",
+    "sku": "PSR020",
+    "price": 15000,
+    "stock": 80,
+    "status": "Còn hàng",
+    "category": "Dụng cụ sơn"
+  }
+]
