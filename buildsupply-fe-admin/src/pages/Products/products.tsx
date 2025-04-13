@@ -9,15 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/lib/select"
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/lib/table"
 import AddProduct from "./addProduct"
 import { ProductTable } from "./productTable"
 import data from "./data.json"
@@ -72,67 +63,7 @@ function Products() {
             </SelectContent>
           </Select>
       </div>
-
-      {/* Product List Section */}
-      <div>
-        {/* Placeholder for product list */}
-        <Table>
-          <TableCaption>Danh sách sản phẩm hiện tại.</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Mã sản phẩm</TableHead>
-              <TableHead>Tên sản phẩm</TableHead>
-              <TableHead>Danh mục</TableHead>
-              <TableHead>Trạng thái</TableHead>
-              <TableHead className="text-right">Giá</TableHead>
-              <TableHead className="text-right">Số lượng tồn kho</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell className="font-medium">SP001</TableCell>
-              <TableCell>Búa</TableCell>
-              <TableCell>Dụng cụ</TableCell>
-              <TableCell>Còn hàng</TableCell>
-              <TableCell className="text-right">100,000₫</TableCell>
-              <TableCell className="text-right">50</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">SP002</TableCell>
-              <TableCell>Máy khoan</TableCell>
-              <TableCell>Điện tử</TableCell>
-              <TableCell>Hết hàng</TableCell>
-              <TableCell className="text-right">1,500,000₫</TableCell>
-              <TableCell className="text-right">0</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">SP003</TableCell>
-              <TableCell>Bàn làm việc</TableCell>
-              <TableCell>Nội thất</TableCell>
-              <TableCell>Còn hàng</TableCell>
-              <TableCell className="text-right">2,000,000₫</TableCell>
-              <TableCell className="text-right">20</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">SP004</TableCell>
-              <TableCell>Ghế xoay</TableCell>
-              <TableCell>Nội thất</TableCell>
-              <TableCell>Hết hàng</TableCell>
-              <TableCell className="text-right">800,000₫</TableCell>
-              <TableCell className="text-right">0</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="font-medium">SP005</TableCell>
-              <TableCell>Đèn bàn</TableCell>
-              <TableCell>Điện tử</TableCell>
-              <TableCell>Còn hàng</TableCell>
-              <TableCell className="text-right">300,000₫</TableCell>
-              <TableCell className="text-right">100</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </div>
-
+      {/* Product Table Section */}
       <div>
         <ProductTable data={data}/>
       </div>

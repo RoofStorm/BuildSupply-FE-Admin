@@ -61,59 +61,55 @@ import {
 export const schema = z.object({
   id: z.number(),
   name: z.string(),
-  sku: z.string(),
-  price: z.number(),
-  stock: z.number(),
+  phone: z.string(),
+  email: z.string(),
+  address: z.string(),
+  orders: z.number(),
+  totalSpent: z.number(),
   status: z.string(),
-  category: z.string(),
 });
 
 // Define the columns for the product table
 const columns: ColumnDef<z.infer<typeof schema>>[] = [
   {
     accessorKey: "name",
-    header: "Tên sản phẩm",
+    header: "Tên khách hàng",
     cell: ({ row }) => <span>{row.original.name}</span>,
     minSize: 200,
     maxSize: 400,
     size: 300,
   },
   {
-    accessorKey: "sku",
-    header: "Mã SKU",
-    cell: ({ row }) => <span>{row.original.sku}</span>,
+    accessorKey: "phone",
+    header: "Phone",
+    cell: ({ row }) => <span>{row.original.phone}</span>,
   },
   {
-    accessorKey: "price",
-    header: "Giá",
-    cell: ({ row }) => <span>{row.original.price.toLocaleString()} ₫</span>,
+    accessorKey: "email",
+    header: "Email",
+    cell: ({ row }) => <span>{row.original.phone}</span>,
   },
   {
-    accessorKey: "stock",
-    header: "Số lượng tồn",
+    accessorKey: "totalSpent",
+    header: "Amount",
     cell: ({ row }) => (
-      <Badge
-        variant={
-          row.original.stock > 10
-            ? "default"
-            : row.original.stock > 0
-            ? "secondary"
-            : "destructive"
-        }
-      >
-        {row.original.stock > 0 ? `${row.original.stock} sản phẩm` : "Hết hàng"}
-      </Badge>
+      <span>{row.original.totalSpent.toLocaleString()} ₫</span>
     ),
   },
   {
     accessorKey: "status",
-    header: "Trạng thái",
-    cell: ({ row }) => <span>{row.original.status}</span>,
+    header: "Số lượng tồn",
+    cell: ({ row }) => <Badge variant={"outline"}>{row.original.status}</Badge>,
   },
   {
-    accessorKey: "category",
-    header: "Danh mục",
-    cell: ({ row }) => <span>{row.original.category}</span>,
+    accessorKey: "address",
+    header: "Địa chỉ",
+    cell: ({ row }) => <span>{row.original.address}</span>,
+  },
+  {
+    accessorKey: "orders",
+    header: "Đơn hàng",
+    cell: ({ row }) => <span>{row.original.orders}</span>,
   },
   {
     id: "actions",
@@ -142,8 +138,8 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   },
 ];
 
-// ProductTable component
-export function ProductTable({
+// CustomerTable component
+export function CustomerTable({
   data: initialData,
 }: {
   data: z.infer<typeof schema>[];
@@ -234,7 +230,7 @@ export function ProductTable({
             ) : (
               <TableRow>
                 <TableCell colSpan={columns.length} className="text-center">
-                  Không có sản phẩm nào.
+                  Không có khách hàng nào.
                 </TableCell>
               </TableRow>
             )}

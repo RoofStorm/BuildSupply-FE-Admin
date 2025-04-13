@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "Nguyễn Văn B",
+    "phone": "0909123456",
+    "email": "nguyenb@gmail.com",
+    "address": "123 Đường Lê Lợi, Q.1, TP.HCM",
+    "orders": 5,
+    "totalSpent": 10500000,
+    "status": "Hoạt động"
+  },
+  {
+    "id": 2,
+    "name": "Trần Thị C",
+    "phone": "0912345678",
+    "email": "tranc@gmail.com",
+    "address": "456 Đường Nguyễn Huệ, Q.1, TP.HCM",
+    "orders": 3,
+    "totalSpent": 7500000,
+    "status": "Khách hàng thân thiết"
+  },
+  {
+    "id": 3,
+    "name": "Lê Văn D",
+    "phone": "0923456789",
+    "email": "levand@gmail.com",
+    "address": "789 Đường Hai Bà Trưng, Q.3, TP.HCM",
+    "orders": 1,
+    "totalSpent": 500000,
+    "status": "Đã khóa"
+  },
+  {
+    "id": 4,
+    "name": "Phạm Thị E",
+    "phone": "0934567890",
+    "email": "phamte@gmail.com",
+    "address": "12 Đường Lý Thường Kiệt, Q.5, TP.HCM",
+    "orders": 8,
+    "totalSpent": 15000000,
+    "status": "Hoạt động"
+  },
+  {
+    "id": 5,
+    "name": "Hoàng Văn F",
+    "phone": "0945678901",
+    "email": "hoangf@gmail.com",
+    "address": "34 Đường Trần Phú, Q.7, TP.HCM",
+    "orders": 2,
+    "totalSpent": 3000000,
+    "status": "Đã khóa"
+  },
+  {
+    "id": 6,
+    "name": "Nguyễn Thị G",
+    "phone": "0956789012",
+    "email": "nguyeng@gmail.com",
+    "address": "56 Đường Nguyễn Văn Linh, Q.9, TP.HCM",
+    "orders": 10,
+    "totalSpent": 20000000,
+    "status": "Khách hàng thân thiết"
+  },
+  {
+    "id": 7,
+    "name": "Lê Thị H",
+    "phone": "0967890123",
+    "email": "lethih@gmail.com",
+    "address": "78 Đường Võ Văn Kiệt, Q.10, TP.HCM",
+    "orders": 4,
+    "totalSpent": 6000000,
+    "status": "Hoạt động"
+  },
+  {
+    "id": 8,
+    "name": "Phạm Văn I",
+    "phone": "0978901234",
+    "email": "phamvi@gmail.com",
+    "address": "90 Đường Phạm Văn Đồng, Q.2, TP.HCM",
+    "orders": 6,
+    "totalSpent": 12000000,
+    "status": "Khách hàng thân thiết"
+  },
+  {
+    "id": 9,
+    "name": "Trần Văn J",
+    "phone": "0989012345",
+    "email": "tranvj@gmail.com",
+    "address": "101 Đường Điện Biên Phủ, Q.3, TP.HCM",
+    "orders": 1,
+    "totalSpent": 500000,
+    "status": "Đã khóa"
+  },
+  {
+    "id": 10,
+    "name": "Nguyễn Văn K",
+    "phone": "0990123456",
+    "email": "nguyenk@gmail.com",
+    "address": "123 Đường Lê Văn Sỹ, Q.4, TP.HCM",
+    "orders": 7,
+    "totalSpent": 14000000,
+    "status": "Hoạt động"
+  },
+  {
+    "id": 11,
+    "name": "Lê Văn L",
+    "phone": "0901234567",
+    "email": "levanl@gmail.com",
+    "address": "234 Đường Nguyễn Trãi, Q.5, TP.HCM",
+    "orders": 3,
+    "totalSpent": 4500000,
+    "status": "Hoạt động"
+  },
+  {
+    "id": 12,
+    "name": "Phạm Thị M",
+    "phone": "0912345678",
+    "email": "phamthim@gmail.com",
+    "address": "345 Đường Cách Mạng Tháng 8, Q.6, TP.HCM",
+    "orders": 5,
+    "totalSpent": 10000000,
+    "status": "Khách hàng thân thiết"
+  },
+  {
+    "id": 13,
+    "name": "Trần Văn N",
+    "phone": "0923456789",
+    "email": "tranvn@gmail.com",
+    "address": "456 Đường Lý Chính Thắng, Q.7, TP.HCM",
+    "orders": 2,
+    "totalSpent": 2000000,
+    "status": "Đã khóa"
+  },
+  {
+    "id": 14,
+    "name": "Nguyễn Thị O",
+    "phone": "0934567890",
+    "email": "nguyento@gmail.com",
+    "address": "567 Đường Nguyễn Văn Cừ, Q.8, TP.HCM",
+    "orders": 9,
+    "totalSpent": 18000000,
+    "status": "Hoạt động"
+  },
+  {
+    "id": 15,
+    "name": "Hoàng Văn P",
+    "phone": "0945678901",
+    "email": "hoangvp@gmail.com",
+    "address": "678 Đường Trần Hưng Đạo, Q.9, TP.HCM",
+    "orders": 4,
+    "totalSpent": 8000000,
+    "status": "Khách hàng thân thiết"
+  },
+  {
+    "id": 16,
+    "name": "Lê Thị Q",
+    "phone": "0956789012",
+    "email": "lethiq@gmail.com",
+    "address": "789 Đường Võ Thị Sáu, Q.10, TP.HCM",
+    "orders": 1,
+    "totalSpent": 500000,
+    "status": "Đã khóa"
+  },
+  {
+    "id": 17,
+    "name": "Phạm Văn R",
+    "phone": "0967890123",
+    "email": "phamvr@gmail.com",
+    "address": "890 Đường Phan Đăng Lưu, Q.11, TP.HCM",
+    "orders": 6,
+    "totalSpent": 12000000,
+    "status": "Hoạt động"
+  },
+  {
+    "id": 18,
+    "name": "Trần Thị S",
+    "phone": "0978901234",
+    "email": "trants@gmail.com",
+    "address": "901 Đường Hoàng Văn Thụ, Q.12, TP.HCM",
+    "orders": 8,
+    "totalSpent": 16000000,
+    "status": "Khách hàng thân thiết"
+  },
+  {
+    "id": 19,
+    "name": "Nguyễn Văn T",
+    "phone": "0989012345",
+    "email": "nguyent@gmail.com",
+    "address": "123 Đường Lê Hồng Phong, Q.1, TP.HCM",
+    "orders": 2,
+    "totalSpent": 4000000,
+    "status": "Đã khóa"
+  },
+  {
+    "id": 20,
+    "name": "Phạm Thị U",
+    "phone": "0990123456",
+    "email": "phamtu@gmail.com",
+    "address": "234 Đường Nguyễn Văn Linh, Q.2, TP.HCM",
+    "orders": 10,
+    "totalSpent": 20000000,
+    "status": "Hoạt động"
+  }
+]
