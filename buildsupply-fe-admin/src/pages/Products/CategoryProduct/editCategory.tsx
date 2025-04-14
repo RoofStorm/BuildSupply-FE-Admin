@@ -9,7 +9,6 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/lib/sheet";
 
 import {
@@ -21,24 +20,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/lib/select";
-import { PlusIcon } from "lucide-react";
 import { Textarea } from "@/components/lib/textarea"
 
 
-export default function AddCategory() {
+export default function EditCategory({
+  open= false,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: (value: boolean) => void;
+}) {
   return (
-    <Sheet >
-      <SheetTrigger asChild>
-        <Button variant="outline" size="sm">
-          <PlusIcon />
-          <span className="hidden lg:inline">Thêm Danh mục</span>
-        </Button>
-      </SheetTrigger>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetContent className="sm:max-w-[600px]" >
         <SheetHeader>
-          <SheetTitle>Thêm Danh mục</SheetTitle>
+          <SheetTitle>Sửa thông tin Danh mục</SheetTitle>
           <SheetDescription>
-            Điền thông tin bên dưới để thêm danh mục mới. Nhấn lưu khi hoàn tất.
+            Điền thông tin bên dưới để sửa thông tin danh mục. Nhấn lưu khi hoàn tất.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 p-4">
@@ -89,10 +87,11 @@ export default function AddCategory() {
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button type="submit">Lưu Danh Mục</Button>
+          <Button type="submit" onClick={() => setOpen(false)}>
+          Lưu Danh Mục</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>
-    </Sheet>
+      </Sheet>
   );
 }

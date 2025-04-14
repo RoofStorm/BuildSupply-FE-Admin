@@ -4,8 +4,23 @@ import * as React from "react";
 import { Badge } from "@/components/lib/badge";
 import { Button } from "@/components/lib/button";
 import { Input } from "@/components/lib/input";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/lib/table";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/lib/dropdown-menu";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/lib/table";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/lib/select";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import {
   Sheet,
@@ -18,7 +33,12 @@ import {
   SheetTrigger,
 } from "@/components/lib/sheet";
 import { z } from "zod";
-
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/lib/tabs";
 
 export const schema = z.object({
   id: z.string(),
@@ -28,7 +48,6 @@ export const schema = z.object({
   total: z.number(),
   status: z.string(),
 });
-
 
 // Mock data for orders
 const orders = [
@@ -79,7 +98,7 @@ function Orders() {
   }
 
   const openOrderDetails = (order: Order): void => {
-    if(order?.id) setSelectedOrder(order);
+    if (order?.id) setSelectedOrder(order);
   };
 
   const closeOrderDetails = () => {
@@ -88,25 +107,49 @@ function Orders() {
 
   return (
     <div className="p-6">
-      {/* Toolbar */}
+      <Tabs defaultValue="all">
+        <TabsList>
+          <TabsTrigger value="all">All</TabsTrigger>
+          <TabsTrigger value="waiting">waiting</TabsTrigger>
+          <TabsTrigger value="shipping">shipping</TabsTrigger>
+          <TabsTrigger value="waiting">waiting</TabsTrigger>
+          <TabsTrigger value="completed">completed</TabsTrigger>
+          <TabsTrigger value="cancel">cancel</TabsTrigger>
+        </TabsList>
+        {/* Toolbar */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center space-x-4">
-        <Input placeholder="Tìm kiếm đơn hàng..." className="w-64" />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">Trạng thái</Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Tất cả</DropdownMenuItem>
-            <DropdownMenuItem>Chờ xử lý</DropdownMenuItem>
-            <DropdownMenuItem>Đang giao</DropdownMenuItem>
-            <DropdownMenuItem>Hoàn thành</DropdownMenuItem>
-            <DropdownMenuItem>Đã hủy</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          <Input placeholder="Tìm kiếm đơn hàng..." className="w-64" />
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Chọn Trạng thái" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Trạng thái</SelectLabel>
+                <SelectItem value="all">Tất cả</SelectItem>
+                <SelectItem value="waiting">Chờ xử lý</SelectItem>
+                <SelectItem value="shipping">Đang giao</SelectItem>
+                <SelectItem value="completed">Hoàn thành</SelectItem>
+                <SelectItem value="cancel">Đã hủy</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
-          <Button className="bg-gray-500 text-white hover:bg-gray-700">Xuất báo cáo</Button>
+        <Button className="bg-gray-500 text-white hover:bg-gray-700">
+          Xuất báo cáo
+        </Button>
       </div>
+        <TabsContent value="all">
+      
+        </TabsContent>
+        <TabsContent value="waiting">waiting</TabsContent>
+        <TabsContent value="shipping">shipping</TabsContent>
+        <TabsContent value="completed">completed</TabsContent>
+        <TabsContent value="cancel">cancel</TabsContent>
+      </Tabs>
+
+      
 
       {/* Order List Table */}
       <div className="overflow-hidden rounded-lg border">
@@ -126,7 +169,9 @@ function Orders() {
             {orders.map((order) => (
               <TableRow key={order.id}>
                 <TableCell>
-                  <a href="#" className="text-blue-500 hover:underline">{order.id}</a>
+                  <a href="#" className="text-blue-500 hover:underline">
+                    {order.id}
+                  </a>
                 </TableCell>
                 <TableCell>{order.date}</TableCell>
                 <TableCell>{order.customer}</TableCell>
@@ -150,7 +195,11 @@ function Orders() {
                 <TableCell>
                   <Sheet>
                     <SheetTrigger asChild>
-                      <Button variant="ghost" size="sm" onClick={() => openOrderDetails(order)}>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => openOrderDetails(order)}
+                      >
                         Xem chi tiết
                       </Button>
                     </SheetTrigger>
@@ -163,12 +212,27 @@ function Orders() {
                       </SheetHeader>
                       {selectedOrder && (
                         <div className="grid gap-4 py-4">
-                          <p><strong>Mã đơn hàng:</strong> {selectedOrder.id}</p>
-                          <p><strong>Ngày đặt:</strong> {selectedOrder.date}</p>
-                          <p><strong>Khách hàng:</strong> {selectedOrder.customer}</p>
-                          <p><strong>Số điện thoại:</strong> {selectedOrder.phone}</p>
-                          <p><strong>Tổng tiền:</strong> {selectedOrder.total.toLocaleString()} VNĐ</p>
-                          <p><strong>Trạng thái:</strong> {selectedOrder.status}</p>
+                          <p>
+                            <strong>Mã đơn hàng:</strong> {selectedOrder.id}
+                          </p>
+                          <p>
+                            <strong>Ngày đặt:</strong> {selectedOrder.date}
+                          </p>
+                          <p>
+                            <strong>Khách hàng:</strong>{" "}
+                            {selectedOrder.customer}
+                          </p>
+                          <p>
+                            <strong>Số điện thoại:</strong>{" "}
+                            {selectedOrder.phone}
+                          </p>
+                          <p>
+                            <strong>Tổng tiền:</strong>{" "}
+                            {selectedOrder.total.toLocaleString()} VNĐ
+                          </p>
+                          <p>
+                            <strong>Trạng thái:</strong> {selectedOrder.status}
+                          </p>
                         </div>
                       )}
                       <SheetFooter>

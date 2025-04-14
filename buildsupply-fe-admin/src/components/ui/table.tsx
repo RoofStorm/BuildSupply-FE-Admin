@@ -47,7 +47,7 @@ export function TableUI<T>({
 }: {
   data: T[];
   columns: ColumnDef<T>[];
-  schema: any; // Schema validation library like zod or yup
+  schema?: any; // Schema validation library like zod or yup
   pageSize?: number;
 }) {
   const [data, setData] = React.useState(initialData);
@@ -135,12 +135,12 @@ export function TableUI<T>({
       <div className="flex items-center justify-between px-4">
         <div className="hidden flex-1 text-sm text-muted-foreground lg:flex">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+          {table.getFilteredRowModel().rows.length} hàng đã chọn.
         </div>
         <div className="flex w-full items-center gap-8 lg:w-fit">
           <div className="hidden items-center gap-2 lg:flex">
             <Label htmlFor="rows-per-page" className="text-sm font-medium">
-              Rows per page
+              Hàng mỗi trang
             </Label>
             <Select
               value={`${table.getState().pagination.pageSize}`}
@@ -163,7 +163,7 @@ export function TableUI<T>({
             </Select>
           </div>
           <div className="flex w-fit items-center justify-center text-sm font-medium">
-            Page {table.getState().pagination.pageIndex + 1} of{" "}
+            Trang {table.getState().pagination.pageIndex + 1} của{" "}
             {table.getPageCount()}
           </div>
           <div className="ml-auto flex items-center gap-2 lg:ml-0">
@@ -173,7 +173,7 @@ export function TableUI<T>({
               onClick={() => table.setPageIndex(0)}
               disabled={!table.getCanPreviousPage()}
             >
-              <span className="sr-only">Go to first page</span>
+              <span className="sr-only">Trang đầu</span>
               <ChevronsLeftIcon />
             </Button>
             <Button
@@ -183,7 +183,7 @@ export function TableUI<T>({
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
             >
-              <span className="sr-only">Go to previous page</span>
+              <span className="sr-only">Trang trước</span>
               <ChevronLeftIcon />
             </Button>
             <Button
@@ -193,7 +193,7 @@ export function TableUI<T>({
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
             >
-              <span className="sr-only">Go to next page</span>
+              <span className="sr-only">Trang tiếp theo</span>
               <ChevronRightIcon />
             </Button>
             <Button
@@ -203,7 +203,7 @@ export function TableUI<T>({
               onClick={() => table.setPageIndex(table.getPageCount() - 1)}
               disabled={!table.getCanNextPage()}
             >
-              <span className="sr-only">Go to last page</span>
+              <span className="sr-only">Trang cuối</span>
               <ChevronsRightIcon />
             </Button>
           </div>

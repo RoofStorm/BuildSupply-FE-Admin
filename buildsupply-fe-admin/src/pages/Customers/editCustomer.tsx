@@ -9,7 +9,6 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/lib/sheet";
 
 import {
@@ -21,22 +20,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/lib/select";
-import { PlusIcon } from "lucide-react";
 
-export default function AddCustomer() {
+export default function EditCustomer({
+    open= false,
+    setOpen,
+  }: {
+    open: boolean;
+    setOpen: (value: boolean) => void;
+  }) {
   return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="outline" size="sm">
-          <PlusIcon />
-          <span className="hidden lg:inline">Thêm Khách Hàng</span>
-        </Button>
-      </SheetTrigger>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetContent className="sm:max-w-[600px]">
         <SheetHeader>
-          <SheetTitle>Thêm Khách Hàng</SheetTitle>
+          <SheetTitle>Sửa thông tin Khách Hàng</SheetTitle>
           <SheetDescription>
-            Điền thông tin bên dưới để thêm khách hàng mới. Nhấn lưu khi hoàn tất.
+            Điền thông tin bên dưới để sửa thông tin khách hàng. Nhấn lưu khi hoàn tất.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 p-4">
@@ -94,7 +92,7 @@ export default function AddCustomer() {
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button type="submit" className="bg-blue-500 text-white hover:bg-blue-600">
+            <Button type="submit" className="bg-blue-500 text-white hover:bg-blue-600" onClick={() => setOpen(false)}>
               Lưu Khách Hàng
             </Button>
           </SheetClose>

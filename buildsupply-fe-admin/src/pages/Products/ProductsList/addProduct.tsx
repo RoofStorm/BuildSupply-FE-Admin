@@ -31,22 +31,27 @@ export default function AddProduct() {
             <PlusIcon />
             <span className="hidden lg:inline">Thêm Sản Phẩm</span>
         </Button>
-      {/* <Button variant="outline">Thêm Sản Phẩm</Button> */}
     </SheetTrigger>
-    <SheetContent className="w-[1000px]">
+    <SheetContent className="sm:max-w-[600px]">
       <SheetHeader>
         <SheetTitle>Thêm Sản Phẩm</SheetTitle>
         <SheetDescription>
           Điền thông tin bên dưới để thêm sản phẩm mới. Nhấn lưu khi hoàn tất.
         </SheetDescription>
       </SheetHeader>
-      <div className="grid gap-4 py-4">
+      <div className="grid gap-4 p-4">
         <div className="grid grid-cols-4 items-center gap-4">
           <Label htmlFor="productName" className="text-right text-nowrap">
             Tên Sản Phẩm
           </Label>
           <Input id="productName" placeholder="Nhập tên sản phẩm" className="col-span-3" />
         </div>
+        <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="productImage" className="text-right">
+              Hình ảnh
+            </Label>
+            <Input id="productImage" type="file"  className="col-span-3"/>
+          </div>
         <div className="grid grid-cols-4 items-center gap-4">
           <Label htmlFor="productName" className="text-right text-nowrap">
             Danh mục

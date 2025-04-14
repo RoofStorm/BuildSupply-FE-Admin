@@ -44,6 +44,7 @@ export default function Customers() {
           <SelectItem value="all">Tất cả</SelectItem>
           <SelectItem value="new">Khách hàng mới</SelectItem>
           <SelectItem value="loyal">Khách hàng thân thiết</SelectItem>
+          <SelectItem value="active">Hoạt động</SelectItem>
           <SelectItem value="locked">Đã khóa</SelectItem>
             </SelectGroup>
           </SelectContent>
