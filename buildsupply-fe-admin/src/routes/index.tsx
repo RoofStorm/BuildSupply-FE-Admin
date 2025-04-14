@@ -3,18 +3,21 @@ import Dashboard from "@/pages/Dashboard/dashboard";
 import Products from "@/pages/Products/products";
 import Orders from "@/pages/Orders/orders";
 import Customers from "@/pages/Customers/customers";
-import Revenue from "@/pages/revenue";
-import Settings from "@/pages/settings";
-
+import Accounts from "@/pages/Accounts";
+import Setting from "@/pages/Setting";
+import Revenue from "@/pages/Revenue";
+import Categories from "@/pages/Products/CategoryProduct/categories";
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Dashboard />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/categories" element={<Categories />} />
       <Route path="/orders" element={<Orders />} />
       <Route path="/customers" element={<Customers />} />
+      <Route path="/accounts" element={<Accounts />} />
       <Route path="/revenue" element={<Revenue />} />
-      <Route path="/settings" element={<Settings />} />
+      <Route path="/setting" element={<Setting />} />
     </Routes>
   );
 }

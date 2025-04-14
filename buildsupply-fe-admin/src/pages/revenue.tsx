@@ -1,5 +1,5 @@
 function Revenue() {
-    return <></>;
-  }
-  
-  export default Revenue;
+  return <></>;
+}
+
+export default Revenue;

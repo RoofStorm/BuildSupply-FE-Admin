@@ -43,11 +43,26 @@ const data = {
       title: "Dashboard",
       url: "/",
       icon: LayoutDashboardIcon,
+      isActive: true,
     },
     {
       title: "Products",
       url: "/products",
       icon: ListIcon,
+      items: [
+        {
+          title: "Product List",
+          icon: FileCodeIcon,
+          url: "/products",
+          isActive: true,
+        },
+        {
+          title: "Category Management",
+          icon: FileCodeIcon,
+          url: "/categories",
+          isActive: true,
+        },
+      ],
     },
     {
       title: "Orders",
@@ -63,6 +78,11 @@ const data = {
       title: "Revenue",
       url: "/revenue",
       icon: BarChartIcon,
+    },
+    {
+      title: "Accounts",
+      url: "/accounts",
+      icon: UsersIcon,
     },
   ],
   navClouds: [

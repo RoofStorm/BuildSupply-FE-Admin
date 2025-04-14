@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { Badge } from "@/components/lib/badge";
 import { Button } from "@/components/lib/button";
 import {
   DropdownMenu,
@@ -17,12 +16,13 @@ import { TableUI } from "@/components/ui/table";
 export const schema = z.object({
   id: z.number(),
   name: z.string(),
-  sku: z.string(),
-  price: z.number(),
-  stock: z.number(),
-  status: z.string(),
-  category: z.string(),
   image: z.string().optional(),
+  slug: z.string(),
+  parent_id: z.number().nullable(),
+  description: z.string(),
+  status: z.string(),
+  created_at: z.string(),
+  updated_at: z.string(),
 });
 
 // Define the columns for the product table
@@ -31,41 +31,17 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "name",
     header: "Tên sản phẩm",
     cell: ({ row }) => <span>{row.original.name}</span>,
-    minSize: 200,
-    maxSize: 400,
-    size: 300,
   },
   {
     accessorKey: "image",
     header: "Hình ảnh",
     cell: ({ row }) => <span>{row.original.image}</span>,
+    maxSize: 20,
   },
   {
-    accessorKey: "sku",
-    header: "Mã SKU",
-    cell: ({ row }) => <span>{row.original.sku}</span>,
-  },
-  {
-    accessorKey: "price",
-    header: "Giá",
-    cell: ({ row }) => <span>{row.original.price.toLocaleString()} ₫</span>,
-  },
-  {
-    accessorKey: "stock",
-    header: "Số lượng tồn",
-    cell: ({ row }) => (
-      <Badge
-        variant={
-          row.original.stock > 10
-            ? "default"
-            : row.original.stock > 0
-            ? "secondary"
-            : "destructive"
-        }
-      >
-        {row.original.stock > 0 ? `${row.original.stock} sản phẩm` : "Hết hàng"}
-      </Badge>
-    ),
+    accessorKey: "slug",
+    header: "Tag",
+    cell: ({ row }) => <span>{row.original.slug}</span>,
   },
   {
     accessorKey: "status",
@@ -73,9 +49,19 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row }) => <span>{row.original.status}</span>,
   },
   {
-    accessorKey: "category",
-    header: "Danh mục",
-    cell: ({ row }) => <span>{row.original.category}</span>,
+    accessorKey: "description",
+    header: "Description",
+    cell: ({ row }) => <span>{row.original.description}</span>,
+  },
+  {
+    accessorKey: "created_at",
+    header: "Ngày tạo",
+    cell: ({ row }) => <span>{row.original.created_at}</span>,
+  },
+  {
+    accessorKey: "updated_at",
+    header: "Ngày cập nhật",
+    cell: ({ row }) => <span>{row.original.updated_at}</span>,
   },
   {
     id: "actions",
@@ -105,7 +91,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
 ];
 
 // ProductTable component
-export function ProductTable({
+export function CategoryTable({
   data: initialData,
 }: {
   data: z.infer<typeof schema>[];
