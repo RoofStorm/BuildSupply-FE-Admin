@@ -7,6 +7,7 @@ import Accounts from "@/pages/Accounts/Accounts";
 import Setting from "@/pages/Setting";
 import Categories from "@/pages/Products/CategoryProduct/categories";
 import RevenueAnalysis from "@/pages/Analysis/Revenue/revenue";
+import InventoryAnalysis from "@/pages/Analysis/Inventory/InventoryAnalasys";
 function AppRoutes() {
   return (
     <Routes>
@@ -17,6 +18,7 @@ function AppRoutes() {
       <Route path="/customers" element={<Customers />} />
       <Route path="/accounts" element={<Accounts />} />
       <Route path="/revenue" element={<RevenueAnalysis />} />
+      <Route path="/inventory" element={<InventoryAnalysis />} />
       <Route path="/setting" element={<Setting />} />
     </Routes>
   );

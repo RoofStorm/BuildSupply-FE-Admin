@@ -127,7 +127,7 @@ export function CustomerTable({
   return (
     <div className="overflow-hidden rounded-lg border">
       <TableUI data={data} columns={columns} schema={schema} />
-      <EditCustomer open={openEditSheet} setOpen={setOpenEditSheet}/>
+      <EditCustomer open={openEditSheet} setOpen={setOpenEditSheet} />
     </div>
   );
 }

@@ -28,7 +28,6 @@ export const schema = z.object({
 
 // Define the columns for the product table
 
-
 // ProductTable component
 export function CategoryTable({
   data: initialData,
@@ -38,11 +37,13 @@ export function CategoryTable({
   const [data, setData] = useState(initialData);
   const [openEditSheet, setOpenEditSheet] = useState<boolean>(false);
 
-  const [selectedIdProduct, setSelectedIdProduct] = useState<number | null>(null);
-    const handleEditProduct = (id: number) => {
-      setOpenEditSheet(true);
-      setSelectedIdProduct(id);
-    };
+  const [selectedIdProduct, setSelectedIdProduct] = useState<number | null>(
+    null
+  );
+  const handleEditProduct = (id: number) => {
+    setOpenEditSheet(true);
+    setSelectedIdProduct(id);
+  };
 
   const columns: ColumnDef<z.infer<typeof schema>>[] = [
     {
@@ -111,8 +112,7 @@ export function CategoryTable({
   return (
     <div>
       <TableUI data={data} columns={columns} schema={schema} />
-            <EditCategory open={openEditSheet} setOpen={setOpenEditSheet} />
-      
+      <EditCategory open={openEditSheet} setOpen={setOpenEditSheet} />
     </div>
   );
 }

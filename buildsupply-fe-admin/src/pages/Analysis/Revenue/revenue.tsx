@@ -89,6 +89,7 @@ export default function RevenueAnalysis() {
         </CardFooter>
       </Card>
       <Top10ProductChart />
+      <PieChartCategory />
     </div>
   );
 }
@@ -181,3 +182,72 @@ const Top10ProductChart = () => {
     </Card>
   );
 };
+
+import { Pie, PieChart } from "recharts";
+
+export function PieChartCategory() {
+  const chartData = [
+    { browser: "chrome", visitors: 275, fill: "#4285F4" }, // Google Chrome Blue
+    { browser: "safari", visitors: 200, fill: "#00A1E1" }, // Safari Blue
+    { browser: "firefox", visitors: 187, fill: "#FF7139" }, // Firefox Orange
+    { browser: "edge", visitors: 173, fill: "#0078D7" }, // Microsoft Edge Blue
+    { browser: "other", visitors: 90, fill: "#A0A0A0" }, // Gray for others
+  ];
+
+  const chartConfig = {
+    visitors: {
+      label: "Visitors",
+    },
+    chrome: {
+      label: "Chrome",
+      color: "#4285F4", // Google Chrome Blue
+    },
+    safari: {
+      label: "Safari",
+      color: "#00A1E1", // Safari Blue
+    },
+    firefox: {
+      label: "Firefox",
+      color: "#FF7139", // Firefox Orange
+    },
+    edge: {
+      label: "Edge",
+      color: "#0078D7", // Microsoft Edge Blue
+    },
+    other: {
+      label: "Other",
+      color: "#A0A0A0", // Gray for others
+    },
+  } satisfies ChartConfig;
+
+  return (
+    <Card className="flex flex-col">
+      <CardHeader className="items-center pb-0">
+        <CardTitle>Pie Chart - Label</CardTitle>
+        <CardDescription>
+          Biểu đồ tròn Hiển thị tỷ lệ đóng góp của từng danh mục trong tổng
+          doanh thu January - June 2024
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="flex-1 pb-0">
+        <ChartContainer
+          config={chartConfig}
+          className="mx-auto aspect-square max-h-[250px] pb-0 [&_.recharts-pie-label-text]:fill-foreground"
+        >
+          <PieChart>
+            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+            <Pie data={chartData} dataKey="visitors" label nameKey="browser" />
+          </PieChart>
+        </ChartContainer>
+      </CardContent>
+      <CardFooter className="flex-col gap-2 text-sm">
+        <div className="flex items-center gap-2 font-medium leading-none">
+          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+        </div>
+        <div className="leading-none text-muted-foreground">
+          Showing total visitors for the last 6 months
+        </div>
+      </CardFooter>
+    </Card>
+  );
+}

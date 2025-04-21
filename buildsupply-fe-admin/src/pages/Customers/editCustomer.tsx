@@ -22,19 +22,20 @@ import {
 } from "@/components/lib/select";
 
 export default function EditCustomer({
-    open= false,
-    setOpen,
-  }: {
-    open: boolean;
-    setOpen: (value: boolean) => void;
-  }) {
+  open = false,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: (value: boolean) => void;
+}) {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetContent className="sm:max-w-[600px]">
         <SheetHeader>
           <SheetTitle>Sửa thông tin Khách Hàng</SheetTitle>
           <SheetDescription>
-            Điền thông tin bên dưới để sửa thông tin khách hàng. Nhấn lưu khi hoàn tất.
+            Điền thông tin bên dưới để sửa thông tin khách hàng. Nhấn lưu khi
+            hoàn tất.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 p-4">
@@ -43,7 +44,11 @@ export default function EditCustomer({
             <Label htmlFor="customerName" className="text-right">
               Tên Khách Hàng
             </Label>
-            <Input id="customerName" placeholder="Nhập tên khách hàng" className="col-span-3" />
+            <Input
+              id="customerName"
+              placeholder="Nhập tên khách hàng"
+              className="col-span-3"
+            />
           </div>
 
           {/* Phone */}
@@ -51,7 +56,12 @@ export default function EditCustomer({
             <Label htmlFor="customerPhone" className="text-right">
               Số Điện Thoại
             </Label>
-            <Input id="customerPhone" type="tel" placeholder="Nhập số điện thoại" className="col-span-3" />
+            <Input
+              id="customerPhone"
+              type="tel"
+              placeholder="Nhập số điện thoại"
+              className="col-span-3"
+            />
           </div>
 
           {/* Email */}
@@ -59,7 +69,12 @@ export default function EditCustomer({
             <Label htmlFor="customerEmail" className="text-right">
               Email
             </Label>
-            <Input id="customerEmail" type="email" placeholder="Nhập email khách hàng" className="col-span-3" />
+            <Input
+              id="customerEmail"
+              type="email"
+              placeholder="Nhập email khách hàng"
+              className="col-span-3"
+            />
           </div>
 
           {/* Address */}
@@ -67,7 +82,11 @@ export default function EditCustomer({
             <Label htmlFor="customerAddress" className="text-right">
               Địa Chỉ
             </Label>
-            <Input id="customerAddress" placeholder="Nhập địa chỉ khách hàng" className="col-span-3" />
+            <Input
+              id="customerAddress"
+              placeholder="Nhập địa chỉ khách hàng"
+              className="col-span-3"
+            />
           </div>
 
           {/* Status */}
@@ -92,7 +111,11 @@ export default function EditCustomer({
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button type="submit" className="bg-blue-500 text-white hover:bg-blue-600" onClick={() => setOpen(false)}>
+            <Button
+              type="submit"
+              className="bg-blue-500 text-white hover:bg-blue-600"
+              onClick={() => setOpen(false)}
+            >
               Lưu Khách Hàng
             </Button>
           </SheetClose>

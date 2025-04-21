@@ -34,7 +34,9 @@ export function ProductTable({
 }) {
   const [data, setData] = useState(initialData);
   const [openEditSheet, setOpenEditSheet] = useState<boolean>(false);
-  const [selectedIdProduct, setSelectedIdProduct] = useState<number | null>(null);
+  const [selectedIdProduct, setSelectedIdProduct] = useState<number | null>(
+    null
+  );
   const handleEditProduct = (id: number) => {
     setOpenEditSheet(true);
     setSelectedIdProduct(id);
@@ -78,7 +80,9 @@ export function ProductTable({
               : "destructive"
           }
         >
-          {row.original.stock > 0 ? `${row.original.stock} sản phẩm` : "Hết hàng"}
+          {row.original.stock > 0
+            ? `${row.original.stock} sản phẩm`
+            : "Hết hàng"}
         </Badge>
       ),
     },
@@ -126,5 +130,3 @@ export function ProductTable({
     </div>
   );
 }
-
-
