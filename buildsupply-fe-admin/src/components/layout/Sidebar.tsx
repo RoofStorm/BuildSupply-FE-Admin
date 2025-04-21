@@ -75,9 +75,25 @@ const data = {
       icon: UsersIcon,
     },
     {
-      title: "Revenue",
-      url: "/revenue",
+      title: "Reports & Analytics",
       icon: BarChartIcon,
+      items: [
+        {
+          title: "Revenue",
+          url: "/revenue",
+          isActive: true,
+        },
+        {
+          title: "Inventory",
+          url: "/inventory",
+          isActive: true,
+        },
+        {
+          title: "Customer",
+          url: "/analysis-customer",
+          isActive: true,
+        },
+      ],
     },
     {
       title: "Accounts",

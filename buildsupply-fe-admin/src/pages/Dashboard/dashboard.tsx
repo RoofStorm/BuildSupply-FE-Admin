@@ -1,7 +1,7 @@
 import { BarChartLabel } from "@/components/lib/barChart";
 import { SectionCards } from "./sectionCards";
-import { DataTable } from "./DataTable";
-import data from "./data.json"
+import { DataTable } from "./dataTable";
+import data from "./data.json";
 
 function Dashboard() {
   return (

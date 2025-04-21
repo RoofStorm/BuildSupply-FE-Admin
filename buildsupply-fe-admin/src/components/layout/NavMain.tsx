@@ -1,6 +1,5 @@
 "use client";
 
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -12,12 +11,6 @@ import {
   SidebarMenuSubButton,
 } from "@/components/lib/sidebar";
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/lib/collapsible";
-
 import { ChevronRight, type LucideIcon } from "lucide-react";
 
 export function NavMain({
@@ -25,7 +18,7 @@ export function NavMain({
 }: {
   items: {
     title: string;
-    url: string;
+    url?: string;
     icon?: LucideIcon;
     isActive?: boolean;
     items?: {

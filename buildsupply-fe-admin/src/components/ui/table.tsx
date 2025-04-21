@@ -44,11 +44,13 @@ export function TableUI<T>({
   columns,
   schema,
   pageSize = 10,
+  isSelectRow = false,
 }: {
   data: T[];
   columns: ColumnDef<T>[];
   schema?: any; // Schema validation library like zod or yup
   pageSize?: number;
+  isSelectRow?: boolean;
 }) {
   const [data, setData] = React.useState(initialData);
   const [rowSelection, setRowSelection] = React.useState({});
@@ -87,6 +89,9 @@ export function TableUI<T>({
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
+
+  const selectedCount = table.getFilteredSelectedRowModel().rows.length;
+  const totalCount = table.getFilteredRowModel().rows.length;
 
   return (
     <div>
@@ -134,10 +139,13 @@ export function TableUI<T>({
       </div>
       <div className="flex items-center justify-between px-4">
         <div className="hidden flex-1 text-sm text-muted-foreground lg:flex">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} hàng đã chọn.
+          {isSelectRow && (
+            <span>
+              {selectedCount} of {totalCount} hàng đã chọn.
+            </span>
+          )}
         </div>
-        <div className="flex w-full items-center gap-8 lg:w-fit">
+        <div className="flex w-full items-center gap-8 lg:w-fit mt-3">
           <div className="hidden items-center gap-2 lg:flex">
             <Label htmlFor="rows-per-page" className="text-sm font-medium">
               Hàng mỗi trang
