@@ -15,13 +15,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/lib/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/components/lib/chart";
 const chartData = [
   { month: "January", revenue: 186, orderNumbs: 80 },
   { month: "February", revenue: 305, orderNumbs: 200 },

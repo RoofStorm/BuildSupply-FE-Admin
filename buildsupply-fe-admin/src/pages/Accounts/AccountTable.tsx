@@ -13,7 +13,7 @@ import {
 } from "@/components/lib/dropdown-menu";
 import { MoreVerticalIcon } from "lucide-react";
 import { z } from "zod";
-import { TableUI } from "@/components/ui/table";
+import { TableUI } from "@/components/ui/Table";
 import EditAccount from "./editAccount";
 // Define the schema for the product table
 export const schema = z.object({
