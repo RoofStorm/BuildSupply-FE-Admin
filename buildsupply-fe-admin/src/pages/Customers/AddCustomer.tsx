@@ -1,6 +1,4 @@
 import { Button } from "@/components/lib/button";
-import { Input } from "@/components/lib/input";
-import { Label } from "@/components/lib/label";
 import {
   Sheet,
   SheetClose,
@@ -11,17 +9,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/lib/sheet";
-
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/lib/select";
 import { PlusIcon } from "lucide-react";
+import { InputUI } from "@/components/ui/Input";
+import SelectUI from "@/components/ui/Select";
+import { customerStatusOptions } from "@/constants/customer.constant";
 
 export default function AddCustomer() {
   return (
@@ -36,65 +27,60 @@ export default function AddCustomer() {
         <SheetHeader>
           <SheetTitle>Thêm Khách Hàng</SheetTitle>
           <SheetDescription>
-            Điền thông tin bên dưới để thêm khách hàng mới. Nhấn lưu khi hoàn tất.
+            Điền thông tin bên dưới để thêm khách hàng mới. Nhấn lưu khi hoàn
+            tất.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 p-4">
           {/* Name */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="customerName" className="text-right">
-              Tên Khách Hàng
-            </Label>
-            <Input id="customerName" placeholder="Nhập tên khách hàng" className="col-span-3" />
-          </div>
+          <InputUI
+            label="Tên Khách Hàng"
+            id="customerName"
+            placeholder="Nhập tên khách hàng"
+            className="grid grid-cols-4 items-center gap-4"
+            inputClassName="col-span-3"
+          />
 
           {/* Phone */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="customerPhone" className="text-right">
-              Số Điện Thoại
-            </Label>
-            <Input id="customerPhone" type="tel" placeholder="Nhập số điện thoại" className="col-span-3" />
-          </div>
-
+          <InputUI
+            label="Số Điện Thoại"
+            id="customerPhone"
+            placeholder="Nhập số điện thoại"
+            type="tel"
+            className="grid grid-cols-4 items-center gap-4"
+            inputClassName="col-span-3"
+          />
           {/* Email */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="customerEmail" className="text-right">
-              Email
-            </Label>
-            <Input id="customerEmail" type="email" placeholder="Nhập email khách hàng" className="col-span-3" />
-          </div>
-
+          <InputUI
+            label="Email"
+            id="customerEmail"
+            placeholder="Nhập email khách hàng"
+            className="grid grid-cols-4 items-center gap-4"
+            inputClassName="col-span-3"
+          />
           {/* Address */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="customerAddress" className="text-right">
-              Địa Chỉ
-            </Label>
-            <Input id="customerAddress" placeholder="Nhập địa chỉ khách hàng" className="col-span-3" />
-          </div>
-
+          <InputUI
+            label="Địa Chỉ"
+            id="customerAddress"
+            placeholder="Nhập địa chỉ khách hàng"
+            className="grid grid-cols-4 items-center gap-4"
+            inputClassName="col-span-3"
+          />
           {/* Status */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="customerStatus" className="text-right">
-              Trạng Thái
-            </Label>
-            <Select>
-              <SelectTrigger id="customerStatus" className="w-full">
-                <SelectValue placeholder="Chọn trạng thái" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Trạng Thái</SelectLabel>
-                  <SelectItem value="active">Hoạt động</SelectItem>
-                  <SelectItem value="vip">Khách hàng thân thiết</SelectItem>
-                  <SelectItem value="locked">Đã khóa</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
+          <SelectUI
+            label="Trạng Thái"
+            placeholder="Chọn trạng thái"
+            selectLabel="Trạng Thái"
+            options={customerStatusOptions}
+            className="grid grid-cols-4 items-center gap-4"
+          />
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button type="submit" className="bg-blue-500 text-white hover:bg-blue-600">
+            <Button
+              type="submit"
+              className="bg-blue-500 text-white hover:bg-blue-600"
+            >
               Lưu Khách Hàng
             </Button>
           </SheetClose>

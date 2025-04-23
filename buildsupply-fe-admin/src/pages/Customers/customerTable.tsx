@@ -13,7 +13,7 @@ import {
 import { MoreVerticalIcon } from "lucide-react";
 import { z } from "zod";
 import { TableUI } from "@/components/ui/Table";
-import EditCustomer from "./editCustomer";
+import EditCustomer from "./EditCustomer";
 
 // Define the schema for the product table
 export const schema = z.object({
@@ -77,10 +77,10 @@ export function CustomerTable({
         <Badge
           variant={
             row.original.status === "Hoạt động"
-              ? "default"
+              ? "new"
               : row.original.status === "Đã khóa"
               ? "destructive"
-              : "outline"
+              : "pending"
           }
         >
           {row.original.status}

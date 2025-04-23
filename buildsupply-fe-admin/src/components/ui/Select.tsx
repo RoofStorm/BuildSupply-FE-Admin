@@ -16,25 +16,27 @@ interface SelectUIOptions {
 
 interface SelectUIProps {
   placeholder?: string;
-  description?: string;
+  selectLabel?: string;
   options?: SelectUIOptions[];
   label?: string;
   id?: string;
   disabled?: boolean;
   width?: string;
+  className?: string;
 }
 
 export default function SelectUI({
   placeholder = "",
-  description = "",
+  selectLabel = "",
   options = [],
   label = "",
-  id="",
+  id = "",
   disabled = false,
   width = "w-[280px]",
+  className = "",
 }: SelectUIProps) {
   return (
-    <>
+    <div className={`gap-1.5 grid ${className}`}>
       <Label htmlFor={id} className="text-right text-nowrap">
         {label}
       </Label>
@@ -44,7 +46,7 @@ export default function SelectUI({
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectLabel>{description}</SelectLabel>
+            <SelectLabel>{selectLabel}</SelectLabel>
             {options.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
@@ -53,6 +55,6 @@ export default function SelectUI({
           </SelectGroup>
         </SelectContent>
       </Select>
-    </>
+    </div>
   );
 }

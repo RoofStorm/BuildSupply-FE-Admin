@@ -14,7 +14,7 @@ import {
 import { MoreVerticalIcon } from "lucide-react";
 import { z } from "zod";
 import { TableUI } from "@/components/ui/Table";
-import EditProduct from "./editProduct";
+import EditProduct from "./EditProduct";
 // Define the schema for the product table
 export const schema = z.object({
   id: z.number(),
@@ -74,9 +74,9 @@ export function ProductTable({
         <Badge
           variant={
             row.original.stock > 10
-              ? "default"
+              ? "new"
               : row.original.stock > 0
-              ? "secondary"
+              ? "pending"
               : "destructive"
           }
         >
