@@ -1,17 +1,9 @@
-import { Input } from "@/components/lib/input";
-import { Label } from "@/components/lib/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/lib/select";
 import AddCustomers from "./AddCustomer";
-import { CustomerTable } from "./customerTable";
+import { CustomerTable } from "./CustomerTable";
 import data from "./data.json";
+import { InputUI } from "@/components/ui/Input";
+import SelectUI from "@/components/ui/Select";
+import { customerStatusOptions } from "@/constants/customer.constant";
 
 export default function Customers() {
   return (
@@ -24,29 +16,23 @@ export default function Customers() {
       {/* Search and Filter Section */}
       <div className="flex flex-col md:flex-row md:items-end gap-4 mb-6">
         {/* Search Input */}
-        <div className="grid w-full md:w-1/2 items-center gap-1.5">
-          <Label htmlFor="search">Tìm kiếm khách hàng</Label>
-          <Input type="text" id="search" placeholder="Tìm kiếm khách hàng..." />
-        </div>
+        <InputUI
+          label="Tìm kiếm khách hàng"
+          id="searchCustomer"
+          placeholder="Tìm kiếm khách hàng..."
+          className="grid w-full md:w-1/2 items-center gap-1.5 "
+        />
 
         {/* Filter Zone */}
         <div className="flex flex-wrap gap-4">
           {/* Filter by Category */}
-          <Select>
-            <SelectTrigger id="category">
-              <SelectValue placeholder="Chọn loại khách hàng" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>Trạng thái khách hàng</SelectLabel>
-                <SelectItem value="all">Tất cả</SelectItem>
-                <SelectItem value="new">Khách hàng mới</SelectItem>
-                <SelectItem value="loyal">Khách hàng thân thiết</SelectItem>
-                <SelectItem value="active">Hoạt động</SelectItem>
-                <SelectItem value="locked">Đã khóa</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <SelectUI
+            placeholder="Chọn loại khách hàng"
+            selectLabel="Trạng thái khách hàng"
+            label="Trang thái"
+            options={customerStatusOptions}
+            className="gap-1.5 grid"
+          />
         </div>
       </div>
       {/* Product Table Section */}

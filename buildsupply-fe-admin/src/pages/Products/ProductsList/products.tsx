@@ -1,17 +1,9 @@
-import { Input } from "@/components/lib/input";
-import { Label } from "@/components/lib/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/lib/select";
-import AddProduct from "./addProduct";
-import { ProductTable } from "./productTable";
+import AddProduct from "./AddProduct";
+import { ProductTable } from "./ProductTable";
 import data from "./data.json";
+import { InputUI } from "@/components/ui/Input";
+import SelectUI from "@/components/ui/Select";
+import { categoryOptions, statusOptions } from "@/constants/product.constant";
 
 function Products() {
   return (
@@ -25,39 +17,29 @@ function Products() {
       {/* Search and Filter Section */}
       <div className="flex flex-col md:flex-row md:items-end gap-4 mb-6">
         {/* Search Input */}
-        <div className="grid w-full md:w-1/2 items-center gap-1.5 ">
-          <Label htmlFor="email">Tìm kiếm sản phẩm</Label>
-          <Input type="email" id="email" placeholder="Tìm kiếm sản phẩm..." />
-        </div>
+        <InputUI
+          label="Tìm kiếm sản phẩm"
+          id="searchProduct"
+          placeholder="Tìm kiếm sản phẩm..."
+          className="grid w-full md:w-1/2 items-center gap-1.5 "
+        />
         {/* Filter Zone */}
         {/* Filter by Category */}
-        <Select>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Chọn danh mục" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Danh mục</SelectLabel>
-              <SelectItem value="tools">Dụng cụ</SelectItem>
-              <SelectItem value="electronics">Điện tử</SelectItem>
-              <SelectItem value="furniture">Nội thất</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <SelectUI
+          placeholder="Chọn danh mục"
+          selectLabel="Danh mục"
+          label="Danh mục"
+          options={categoryOptions}
+          className="gap-1.5 grid"
+        />
         {/* Filter by Status */}
-        <Select>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Chọn Trạng thái" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Trạng thái</SelectLabel>
-              <SelectItem value="tools">Dụng cụ</SelectItem>
-              <SelectItem value="electronics">Còn hàng</SelectItem>
-              <SelectItem value="furniture">Hết hàng</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <SelectUI
+          placeholder="Chọn Trạng thái"
+          selectLabel="Trạng thái"
+          label="Trạng thái"
+          options={statusOptions}
+          className="gap-1.5 grid"
+        />
       </div>
       {/* Product Table Section */}
       <div>

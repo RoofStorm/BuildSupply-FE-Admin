@@ -8,7 +8,7 @@ export function InputUI({
   placeholder = "",
   disabled,
   inputClassName = "",
-  
+  className = "grid w-full items-center gap-1.5",
 }: {
   label?: string;
   id?: string;
@@ -16,9 +16,10 @@ export function InputUI({
   placeholder?: string;
   disabled?: boolean;
   inputClassName?: string;
+  className?: string;
 }) {
   return (
-    <div className="grid w-full max-w-sm items-center gap-1.5">
+    <div className={className}>
       <Label htmlFor={id}>{label}</Label>
       <Input
         type={type}

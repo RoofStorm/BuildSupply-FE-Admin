@@ -1,17 +1,9 @@
-import { Input } from "@/components/lib/input";
-import { Label } from "@/components/lib/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/lib/select";
-import AddCategory from "./addCategory";
+import AddCategory from "./AddCategory";
 import { CategoryTable } from "./categoryTable";
 import data from "./data.json";
+import { InputUI } from "@/components/ui/Input";
+import SelectUI from "@/components/ui/Select";
+import { statusOptions } from "@/constants/product.constant";
 
 export default function Categories() {
   return (
@@ -25,25 +17,19 @@ export default function Categories() {
       {/* Search and Filter Section */}
       <div className="flex flex-col md:flex-row md:items-end gap-4 mb-6">
         {/* Search Input */}
-        <div className="grid w-full md:w-1/2 items-center gap-1.5 ">
-          <Label htmlFor="email">Tìm kiếm danh mục</Label>
-          <Input type="email" id="email" placeholder="Tìm kiếm danh mục..." />
-        </div>
+        <InputUI
+          label="Tìm kiếm danh mục"
+          placeholder="Tìm kiếm danh mục..."
+          className="grid w-full md:w-1/2 items-center gap-1.5 "
+        />
         {/* Filter Zone */}
         {/* Filter by Status */}
-        <Select>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Chọn Trạng thái" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Trạng thái</SelectLabel>
-              <SelectItem value="tools">Dụng cụ</SelectItem>
-              <SelectItem value="electronics">Còn hàng</SelectItem>
-              <SelectItem value="furniture">Hết hàng</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <SelectUI
+          placeholder="Chọn Trạng thái"
+          selectLabel="Trạng thái"
+          label="Trạng thái"
+          options={statusOptions}
+        />
       </div>
       {/* Product Table Section */}
       <div>
