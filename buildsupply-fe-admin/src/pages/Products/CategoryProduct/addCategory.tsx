@@ -1,5 +1,4 @@
 import { Button } from "@/components/lib/button";
-import { Input } from "@/components/lib/input";
 import { Label } from "@/components/lib/label";
 import {
   Sheet,
@@ -12,29 +11,22 @@ import {
   SheetTrigger,
 } from "@/components/lib/sheet";
 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/lib/select";
 import { PlusIcon } from "lucide-react";
-import { Textarea } from "@/components/lib/textarea"
-
+import { Textarea } from "@/components/lib/textarea";
+import { InputUI } from "@/components/ui/Input";
+import SelectUI from "@/components/ui/Select";
+import { categoryOptions } from "@/constants/product.constant";
 
 export default function AddCategory() {
   return (
-    <Sheet >
+    <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline" size="sm">
           <PlusIcon />
           <span className="hidden lg:inline">Thêm Danh mục</span>
         </Button>
       </SheetTrigger>
-      <SheetContent className="sm:max-w-[600px]" >
+      <SheetContent className="sm:max-w-[600px]">
         <SheetHeader>
           <SheetTitle>Thêm Danh mục</SheetTitle>
           <SheetDescription>
@@ -42,45 +34,31 @@ export default function AddCategory() {
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 p-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="productName" className="text-right text-nowrap">
-              Tên Danh mục
-            </Label>
-            <Input
-              id="productName"
-              placeholder="Nhập tên sản phẩm"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="productName" className="text-right text-nowrap">
-              Danh mục cha
-            </Label>
-            <Select>
-              <SelectTrigger className="w-[280px]">
-                <SelectValue placeholder="Chọn danh mục cha" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Danh mục cha</SelectLabel>
-                  <SelectItem value="tools">Dụng cụ</SelectItem>
-                  <SelectItem value="electronics">Điện tử</SelectItem>
-                  <SelectItem value="furniture">Nội thất</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="categoryImage" className="text-right">
-              Hình ảnh
-            </Label>
-            <Input id="categoryImage" type="file"  className="col-span-3"/>
-          </div>
+          <InputUI
+            id="categoryName"
+            label="Tên Danh mục"
+            placeholder="Nhập tên danh mục"
+            inputClassName="col-span-3"
+            className="grid grid-cols-4 items-center gap-4"
+          />
+          <SelectUI
+            label="Danh mục cha"
+            options={categoryOptions}
+            className="grid grid-cols-4 items-center gap-4"
+          />
+          <InputUI
+            id="categoryImage"
+            label="Hình ảnh"
+            placeholder="Chọn hình ảnh danh mục"
+            type="file"
+            inputClassName="col-span-3"
+            className="grid grid-cols-4 items-center gap-4"
+          />
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="productDescription" className="text-right">
               Mô Tả
             </Label>
-            <Textarea 
+            <Textarea
               id="productDescription"
               placeholder="Nhập mô tả sản phẩm"
               className="col-span-3"

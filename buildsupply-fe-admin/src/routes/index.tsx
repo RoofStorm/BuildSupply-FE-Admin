@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "@/pages/Dashboard/dashboard";
-import Products from "@/pages/Products/ProductsList/products";
-import Orders from "@/pages/Orders/orders";
-import Customers from "@/pages/Customers/customers";
+import Dashboard from "@/pages/Dashboard/Dashboard";
+import Products from "@/pages/Products/ProductsList/Products";
+import Orders from "@/pages/Orders/Orders";
+import Customers from "@/pages/Customers/Customers";
 import Accounts from "@/pages/Accounts/Accounts";
 import Setting from "@/pages/Setting";
-import Categories from "@/pages/Products/CategoryProduct/categories";
-import RevenueAnalysis from "@/pages/Analysis/Revenue/revenue";
+import Categories from "@/pages/Products/CategoryProduct/Categories";
+import RevenueAnalysis from "@/pages/Analysis/Revenue/Revenue";
 import InventoryAnalysis from "@/pages/Analysis/Inventory/InventoryAnalasys";
 function AppRoutes() {
   return (

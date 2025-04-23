@@ -1,17 +1,10 @@
 import { Input } from "@/components/lib/input";
 import { Label } from "@/components/lib/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/lib/select";
 import AddProduct from "./addProduct";
-import { ProductTable } from "./productTable";
+import { ProductTable } from "./ProductTable";
 import data from "./data.json";
+import SelectUI from "@/components/ui/Select";
+import { categoryOptions, statusOptions } from "@/constants/product.constant";
 
 function Products() {
   return (
@@ -31,33 +24,10 @@ function Products() {
         </div>
         {/* Filter Zone */}
         {/* Filter by Category */}
-        <Select>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Chọn danh mục" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Danh mục</SelectLabel>
-              <SelectItem value="tools">Dụng cụ</SelectItem>
-              <SelectItem value="electronics">Điện tử</SelectItem>
-              <SelectItem value="furniture">Nội thất</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <SelectUI label="Danh mục" options={categoryOptions}/>
         {/* Filter by Status */}
-        <Select>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Chọn Trạng thái" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Trạng thái</SelectLabel>
-              <SelectItem value="tools">Dụng cụ</SelectItem>
-              <SelectItem value="electronics">Còn hàng</SelectItem>
-              <SelectItem value="furniture">Hết hàng</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        <SelectUI label="Trạng thái" options={statusOptions}/>
+
       </div>
       {/* Product Table Section */}
       <div>

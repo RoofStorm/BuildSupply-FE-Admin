@@ -6,7 +6,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/lib/tabs";
-import OrderTab from "./orderTab";
+import OrderTab from "./OrderTab";
 
 function Orders() {
   return (

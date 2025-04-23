@@ -12,7 +12,8 @@ import {
 import { MoreVerticalIcon } from "lucide-react";
 import { z } from "zod";
 import { TableUI } from "@/components/ui/Table";
-import EditCategory from "./editCategory";
+import EditCategory from "./EditCategory";
+import { Badge } from "@/components/lib/badge";
 // Define the schema for the product table
 export const schema = z.object({
   id: z.number(),
@@ -65,7 +66,13 @@ export function CategoryTable({
     {
       accessorKey: "status",
       header: "Trạng thái",
-      cell: ({ row }) => <span>{row.original.status}</span>,
+      cell: ({ row }) => (
+        <Badge
+          variant={row.original.status === "active" ? "new" : "destructive"}
+        >
+          {row.original.status}
+        </Badge>
+      ),
     },
     {
       accessorKey: "description",

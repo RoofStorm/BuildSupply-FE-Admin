@@ -8,7 +8,9 @@ export function InputUI({
   placeholder = "",
   disabled,
   inputClassName = "",
-  
+  className = "grid w-full items-center gap-1.5",
+  value,
+  onChange,
 }: {
   label?: string;
   id?: string;
@@ -16,9 +18,18 @@ export function InputUI({
   placeholder?: string;
   disabled?: boolean;
   inputClassName?: string;
+  className?: string;
+  value?: any; // Updated to match the expected type for non-file inputs
+  onChange?: (value: string | number | undefined | File[] | File) => void;
 }) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChange) {
+        onChange(e.target.value); // Handle other input types
+      }
+  };
+
   return (
-    <div className="grid w-full max-w-sm items-center gap-1.5">
+    <div className={className}>
       <Label htmlFor={id}>{label}</Label>
       <Input
         type={type}
@@ -26,6 +37,8 @@ export function InputUI({
         placeholder={placeholder}
         disabled={disabled}
         className={inputClassName}
+        value={value}
+        onChange={handleChange}
       />
     </div>
   );

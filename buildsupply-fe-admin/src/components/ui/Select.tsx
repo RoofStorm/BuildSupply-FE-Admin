@@ -16,35 +16,50 @@ interface SelectUIOptions {
 
 interface SelectUIProps {
   placeholder?: string;
-  description?: string;
   options?: SelectUIOptions[];
   label?: string;
   id?: string;
   disabled?: boolean;
   width?: string;
+  className?: string;
+  selectClassName?: string;
+  value?:string | undefined;
+  onChange?: (value: string) => void
 }
 
 export default function SelectUI({
   placeholder = "",
-  description = "",
   options = [],
   label = "",
-  id="",
+  id = "",
   disabled = false,
-  width = "w-[280px]",
+  width = "w-auto",
+  className = "gap-1.5 grid",
+  selectClassName = "",
+  value,
+  onChange,
 }: SelectUIProps) {
+
+  if(!placeholder) placeholder= `Chọn ${label.toLocaleLowerCase()}`;
+
+  const handleChange = (newValue: string) => {
+    if (onChange) {
+      onChange(newValue);
+    }
+  };
+
   return (
-    <>
+    <div className={`${className}`}>
       <Label htmlFor={id} className="text-right text-nowrap">
         {label}
       </Label>
-      <Select disabled={disabled}>
-        <SelectTrigger className={width}>
+      <Select disabled={disabled} value={value} onValueChange={handleChange}>
+        <SelectTrigger className={`${width} ${selectClassName}`}>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectLabel>{description}</SelectLabel>
+            <SelectLabel>{label}</SelectLabel>
             {options.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
@@ -53,6 +68,6 @@ export default function SelectUI({
           </SelectGroup>
         </SelectContent>
       </Select>
-    </>
+    </div>
   );
 }

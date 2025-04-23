@@ -30,6 +30,9 @@ import {
   TableRow,
 } from "@/components/lib/table";
 import { Badge } from "@/components/lib/badge";
+import SelectUI from "@/components/ui/Select";
+import { orderStatusOptions } from "@/constants/order.constant";
+import { InputUI } from "@/components/ui/Input";
 
 export const schema = z.object({
   id: z.string(),
@@ -96,24 +99,19 @@ export default function OrderTab() {
   return (
     <>
       {/* Toolbar */}
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center space-x-4">
-          <Input placeholder="Tìm kiếm đơn hàng..." className="w-64" />
-          <Select>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Chọn Trạng thái" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>Trạng thái</SelectLabel>
-                <SelectItem value="all">Tất cả</SelectItem>
-                <SelectItem value="waiting">Chờ xử lý</SelectItem>
-                <SelectItem value="shipping">Đang giao</SelectItem>
-                <SelectItem value="completed">Hoàn thành</SelectItem>
-                <SelectItem value="cancel">Đã hủy</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+      <div className="flex justify-between items-end mb-4">
+        <div className="flex items-center space-x-4 w-full">
+          <InputUI
+            label="Search"
+            id="searchOrder"
+            placeholder="Tìm kiếm đơn hàng..."
+            className="grid w-full md:w-1/2 items-center gap-1.5 "
+          />
+          <SelectUI
+            label="Trạng thái"
+            options={orderStatusOptions}
+            className="gap-1.5 grid"
+          />
         </div>
         <Button className="bg-gray-500 text-white hover:bg-gray-700">
           Xuất báo cáo
@@ -150,11 +148,11 @@ export default function OrderTab() {
                   <Badge
                     variant={
                       order.status === "Chờ xử lý"
-                        ? "default"
+                        ? "pending"
                         : order.status === "Đang giao"
-                        ? "destructive"
+                        ? "default"
                         : order.status === "Hoàn thành"
-                        ? "secondary"
+                        ? "complete"
                         : "destructive"
                     }
                   >
