@@ -20,7 +20,7 @@ export function InputUI({
   inputClassName?: string;
   className?: string;
   value?: any; // Updated to match the expected type for non-file inputs
-  onChange?: (value: string | number | undefined | File[] | File) => void;
+  onChange?: (value: string | number | undefined) => void;
 }) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (onChange) {

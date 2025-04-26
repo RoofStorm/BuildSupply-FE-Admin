@@ -1,0 +1,19 @@
+{
+  "welcome": "Welcome to the app!",
+  "language": "Language",
+  "product":"Product",
+  "category":"Category",
+  "status":"Status",
+  "search":"Search",
+  "actions":"Actions",
+  "productPage":{
+    "searchProduct":"Search product",
+    "table":{
+      "name":"Product Name",
+      "image":"Image",
+      "sku":"SKU code",
+      "price":"Price",
+      "stock":"Stock"
+    }
+  }
+}

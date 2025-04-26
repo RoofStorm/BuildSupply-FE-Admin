@@ -101,13 +101,15 @@ export function TableUI<T>({
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
+                  <TableHead key={header.id} className="text-center">
+                    <>
+                      {/* {console.log(header)} */}
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
                           header.column.columnDef.header,
                           header.getContext()
-                        )}
+                        )}</>
                   </TableHead>
                 ))}
               </TableRow>

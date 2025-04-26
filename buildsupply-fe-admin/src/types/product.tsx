@@ -1,7 +1,8 @@
 export interface Product {
   name: string;
-  images: any; // Update this to handle an array of File objects
+  images: File[] | string[]; // Update this to handle an array of File objects
   category: string;
-  price: string;
+  price: number;
   description: string;
+  status?:string;
 }

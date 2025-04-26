@@ -15,13 +15,15 @@ import SelectUI from "@/components/ui/Select";
 import { categoryOptions } from "@/constants/product.constant";
 import { useState } from "react";
 import { Product } from "@/types/product";
+import ImageDropzone from "@/components/ui/ImageDropzone";
+import { CurrencyInput } from "@/components/ui/CurrencyInput";
 
 export default function AddProduct() {
   const [product, setProduct] = useState<Product>({
     name: "",
     images: [],
     category: "",
-    price: "",
+    price: 0,
     description: ""
   })
 
@@ -51,6 +53,11 @@ export default function AddProduct() {
     console.log(product)
     // handleFileUpload();
   }
+
+  const [files, setFiles] = useState<File[]>([]);
+  const [serverImages] = useState<string[]>([
+    
+  ]);
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -76,16 +83,6 @@ export default function AddProduct() {
             inputClassName="col-span-3"
             className="grid grid-cols-4 items-center gap-4"
           />
-          <InputUI
-            id="productImage"
-            label="Hình ảnh"
-            placeholder="Chọn hình ảnh sản phẩm"
-            type="file"
-            // value={product.images}
-            // onChange={(value) => handleChange(value, "images")}
-            inputClassName="col-span-3"
-            className="grid grid-cols-4 items-center gap-4"
-          />
           <SelectUI
             label="Danh mục"
             options={categoryOptions}
@@ -93,17 +90,13 @@ export default function AddProduct() {
             onChange={(value) => handleChange(value, "category")}
             className="grid grid-cols-4 items-center gap-4"
             selectClassName="col-span-3"
+            // width="w-auto"
           />
-          <InputUI
-            label="Giá"
-            id="productPrice"
-            type="number"
-            placeholder="Nhập giá sản phẩm"
+          <CurrencyInput label="Giá" id="productPrice" placeholder="Nhập giá sản phẩm"
             value={product.price}
             onChange={(value) => handleChange(value, "price")}
             inputClassName="col-span-3"
-            className="grid grid-cols-4 items-center gap-4"
-          />
+            className="grid grid-cols-4 items-center gap-4" />
           <InputUI
             label="Mô Tả"
             id="productDescription"
@@ -112,6 +105,15 @@ export default function AddProduct() {
             onChange={(value) => handleChange(value, "description")}
             inputClassName="col-span-3"
             className="grid grid-cols-4 items-center gap-4"
+          />
+          <ImageDropzone
+            multiple
+            initialFiles={product.images}
+            onChange={(selectedFiles) => {
+              handleChange(selectedFiles, "images")
+              setFiles(selectedFiles); // These are File[] you can send to server
+            }}
+            label="Hình ảnh"
           />
         </div>
         <SheetFooter>

@@ -1,0 +1,19 @@
+{
+  "welcome": "Chào mừng bạn đến với ứng dụng!",
+  "language": "Ngôn ngữ",
+  "product":"Sản phẩm",
+  "category":"Danh mục",
+  "status":"Trạng thái",
+  "search":"Tìm kiếm",
+  "actions":"Hành động",
+  "productPage":{
+    "searchProduct":"Tìm kiếm sản phẩm",
+    "table":{
+      "name":"Tên sản phẩm",
+      "image":"Hình ảnh",
+      "sku":"Mã SKU",
+      "price":"Giá",
+      "stock":"Số lượng tồn"
+    }
+  }
+}

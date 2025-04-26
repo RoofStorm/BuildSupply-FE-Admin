@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx"; // Import the AppRoutes component
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import './i18n'; // import i18n trước khi render App
 
 const queryClient = new QueryClient();
 

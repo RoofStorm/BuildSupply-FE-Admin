@@ -1,20 +1,14 @@
 "use client";
 
-import * as React from "react";
 import { useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/lib/badge";
-import { Button } from "@/components/lib/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/lib/dropdown-menu";
-import { MoreVerticalIcon } from "lucide-react";
 import { z } from "zod";
 import { TableUI } from "@/components/ui/Table";
 import EditProduct from "./EditProduct";
+import { DeleteButton, EditButton, ViewButton } from "@/components/ui/Button";
+import { useTranslation } from 'react-i18next';
+
 // Define the schema for the product table
 export const schema = z.object({
   id: z.number(),
@@ -32,6 +26,7 @@ export function ProductTable({
 }: {
   data: z.infer<typeof schema>[];
 }) {
+  const { t } = useTranslation();
   const [data, setData] = useState(initialData);
   const [openEditSheet, setOpenEditSheet] = useState<boolean>(false);
   const [selectedIdProduct, setSelectedIdProduct] = useState<number | null>(
@@ -46,79 +41,65 @@ export function ProductTable({
   const columns: ColumnDef<z.infer<typeof schema>>[] = [
     {
       accessorKey: "name",
-      header: "Tên sản phẩm",
+      header: t("productPage.table.name"),
       cell: ({ row }) => <span>{row.original.name}</span>,
-      minSize: 200,
-      maxSize: 400,
-      size: 300,
     },
     {
       accessorKey: "image",
-      header: "Hình ảnh",
+      header: t("productPage.table.image"),
       cell: ({ row }) => <span>{row.original.image}</span>,
     },
     {
       accessorKey: "sku",
-      header: "Mã SKU",
+      header: t("productPage.table.sku"),
       cell: ({ row }) => <span>{row.original.sku}</span>,
     },
     {
       accessorKey: "price",
-      header: "Giá",
+      header: t("productPage.table.price"),
       cell: ({ row }) => <span>{row.original.price.toLocaleString()} ₫</span>,
     },
     {
       accessorKey: "stock",
-      header: "Số lượng tồn",
+      header: t("productPage.table.stock"),
       cell: ({ row }) => (
-        <Badge
-          variant={
-            row.original.stock > 10
-              ? "new"
-              : row.original.stock > 0
-              ? "pending"
-              : "destructive"
-          }
-        >
-          {row.original.stock > 0
-            ? `${row.original.stock} sản phẩm`
-            : "Hết hàng"}
-        </Badge>
+        <div className="text-center">
+          <Badge
+            variant={
+              row.original.stock > 10
+                ? "new"
+                : row.original.stock > 0
+                  ? "pending"
+                  : "destructive"
+            }
+            className="text-center"
+          >
+            {row.original.stock > 0
+              ? `${row.original.stock} sản phẩm`
+              : "Hết hàng"}
+          </Badge>
+        </div>
       ),
     },
     {
       accessorKey: "status",
-      header: "Trạng thái",
-      cell: ({ row }) => <span>{row.original.status}</span>,
+      header: t("status"),
+      cell: ({ row }) => <div className="text-center">{row.original.status}</div>,
     },
     {
       accessorKey: "category",
-      header: "Danh mục",
+      header: t("category"),
       cell: ({ row }) => <span>{row.original.category}</span>,
     },
     {
       id: "actions",
-      header: "Hành động",
+      header: t("actions"),
       cell: ({ row }) => (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <MoreVerticalIcon />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem
-              onClick={() => handleEditProduct(row.original.id)}
-            >
-              Sửa
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              onClick={() => console.log("Delete", row.original.id)}
-            >
-              Xóa
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex gap-2 items-center justify-center">
+          <ViewButton/>
+          <EditButton onClick={() => handleEditProduct(row.original.id)} />
+          <DeleteButton/>
+        </div>
       ),
     },
   ];
