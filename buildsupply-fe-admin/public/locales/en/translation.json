@@ -6,14 +6,36 @@
   "status":"Status",
   "search":"Search",
   "actions":"Actions",
+  "price":"Price",
+  "enter":"Enter",
+  "image":"Image",
+  "select":"Select",
   "productPage":{
     "searchProduct":"Search product",
+    "productDescription":"Product Description",
     "table":{
       "name":"Product Name",
       "image":"Image",
       "sku":"SKU code",
       "price":"Price",
       "stock":"Stock"
+    },
+    "editPage":{
+      "editProduct":"Edit Product Information",
+      "action":"Fill in the information below to Edit product information. Click save when finished."
+    },
+    "addPage":{
+      "addProduct":"Add New Product",
+      "action":"Fill in the information below to add a new product. Click save when finished."
+    },
+    "saveProduct":"Save Product"
+  },
+  "categoryPage":{
+    "searchCategory":"Search for category",
+    "name":"Category Name",
+    "tag": "Tag",
+    "addPage":{
+      "addCategory":"Add New Category"
     }
   }
 }

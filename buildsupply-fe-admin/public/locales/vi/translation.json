@@ -5,15 +5,63 @@
   "category":"Danh mục",
   "status":"Trạng thái",
   "search":"Tìm kiếm",
-  "actions":"Hành động",
+  "action":"Hành động",
+  "price":"Giá",
+  "enter":"Nhập",
+  "image":"Hình ảnh",
+  "select":"Chọn",
+  "description":"Mô tả",
+  "created_at":"Ngày tạo",
+  "updated_at":"Ngày cập nhật",
+  "phone":"Số điện thoại",
+  "actions":{
+    "edit":"Chỉnh sửa",
+    "delete":"Xóa",
+    "view":"Xem chi tiết"
+  },
   "productPage":{
     "searchProduct":"Tìm kiếm sản phẩm",
+    "productDescription":"Mô tả sản phẩm",
     "table":{
       "name":"Tên sản phẩm",
       "image":"Hình ảnh",
       "sku":"Mã SKU",
       "price":"Giá",
       "stock":"Số lượng tồn"
-    }
+    },
+    "editPage":{
+      "editProduct":"Sửa thông tin Sản Phẩm",
+      "action":"Điền thông tin bên dưới để Sửa thông tin sản phẩm. Nhấn lưu khi hoàn tất."
+    },
+    "addPage":{
+      "addProduct":"Thêm Sản Phẩm",
+      "action":"Điền thông tin bên dưới để thêm sản phẩm mới. Nhấn lưu khi hoàn tất."
+    },
+    "saveProduct":"Lưu Sản Phẩm"
+  },
+  "categoryPage":{
+    "searchCategory":"Tìm kiếm danh mục",
+    "name":"Tên danh mục",
+    "tag": "Thẻ tag",
+    "parentCategory":"Danh mục cha",
+    "addPage":{
+      "addCategory":"Thêm danh mục",
+      "action":"Điền thông tin bên dưới để thêm danh mục mới. Nhấn lưu khi hoàn tất."
+    },
+    "saveCategory":"Lưu danh mục"
+  },
+  "orderPage":{
+    "status":{
+      "shipping":"Đang ship",
+      "waiting":"Đang đợi",
+      "complete":"Hoàn thành",
+      "cancel":"Đã hủy",
+      "return":"Hoàn hàng"
+    },
+    "searchOrder":"Tìm kiếm đơn hàng",
+    "code":"Mã đơn hàng",
+    "orderDate":"Ngày đặt",
+    "customer":"Khách hàng",
+    "totalMoney":"Tổng tiền"
   }
 }

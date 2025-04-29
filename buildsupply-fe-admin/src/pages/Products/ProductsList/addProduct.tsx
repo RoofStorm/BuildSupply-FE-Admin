@@ -17,8 +17,11 @@ import { useState } from "react";
 import { Product } from "@/types/product";
 import ImageDropzone from "@/components/ui/ImageDropzone";
 import { CurrencyInput } from "@/components/ui/CurrencyInput";
+import { useTranslation } from "react-i18next";
 
 export default function AddProduct() {
+  const { t } = useTranslation();
+
   const [product, setProduct] = useState<Product>({
     name: "",
     images: [],
@@ -63,28 +66,27 @@ export default function AddProduct() {
       <SheetTrigger asChild>
         <Button variant="outline" size="sm">
           <PlusIcon />
-          <span className="hidden lg:inline">Thêm Sản Phẩm</span>
+          <span className="hidden lg:inline">{t('productPage.addPage.addProduct')}</span>
         </Button>
       </SheetTrigger>
       <SheetContent className="sm:max-w-[600px]">
         <SheetHeader>
-          <SheetTitle>Thêm Sản Phẩm</SheetTitle>
+          <SheetTitle>{t('productPage.addPage.addProduct')}</SheetTitle>
           <SheetDescription>
-            Điền thông tin bên dưới để thêm sản phẩm mới. Nhấn lưu khi hoàn tất.
+            {t('productPage.addPage.action')}
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 p-4">
           <InputUI
             id="productName"
-            label="Tên Sản Phẩm"
-            placeholder="Nhập tên sản phẩm"
+            label={t('productPage.table.name')}
             value={product.name}
             onChange={(value) => handleChange(value, "name")}
             inputClassName="col-span-3"
             className="grid grid-cols-4 items-center gap-4"
           />
           <SelectUI
-            label="Danh mục"
+            label={t('category')}
             options={categoryOptions}
             value={product.category}
             onChange={(value) => handleChange(value, "category")}
@@ -92,15 +94,14 @@ export default function AddProduct() {
             selectClassName="col-span-3"
             // width="w-auto"
           />
-          <CurrencyInput label="Giá" id="productPrice" placeholder="Nhập giá sản phẩm"
+          <CurrencyInput label={t('price')} id="productPrice" placeholder="Nhập giá sản phẩm"
             value={product.price}
             onChange={(value) => handleChange(value, "price")}
             inputClassName="col-span-3"
             className="grid grid-cols-4 items-center gap-4" />
           <InputUI
-            label="Mô Tả"
+            label={t('productPage.productDescription')}
             id="productDescription"
-            placeholder="Nhập mô tả sản phẩm"
             value={product.description}
             onChange={(value) => handleChange(value, "description")}
             inputClassName="col-span-3"
@@ -113,12 +114,12 @@ export default function AddProduct() {
               handleChange(selectedFiles, "images")
               setFiles(selectedFiles); // These are File[] you can send to server
             }}
-            label="Hình ảnh"
+            label={t('image')}
           />
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button type="submit" onClick={submit}>Lưu Sản Phẩm</Button>
+            <Button type="submit" onClick={submit}>{t('productPage.saveProduct')}</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

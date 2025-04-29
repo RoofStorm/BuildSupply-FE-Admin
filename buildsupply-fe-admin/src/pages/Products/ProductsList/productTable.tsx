@@ -93,7 +93,7 @@ export function ProductTable({
     },
     {
       id: "actions",
-      header: t("actions"),
+      header: t("action"),
       cell: ({ row }) => (
         <div className="flex gap-2 items-center justify-center">
           <ViewButton/>

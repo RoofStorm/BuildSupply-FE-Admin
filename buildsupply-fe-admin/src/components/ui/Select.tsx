@@ -10,6 +10,7 @@ import {
 } from "@/components/lib/select";
 import { Label } from "@/components/lib/label";
 import { Button } from "../lib/button";
+import { useTranslation } from "react-i18next";
 
 interface SelectUIOptions {
   value: string;
@@ -43,8 +44,8 @@ export default function SelectUI({
   onChange,
   defaultValue,
 }: SelectUIProps) {
-
-  if(!placeholder) placeholder= `Chọn ${label.toLocaleLowerCase()}`;
+  const { t } = useTranslation();
+  if (!placeholder) placeholder = `${t('select')} ${label.toLocaleLowerCase()}`;
 
   const handleChange = (newValue: string) => {
     if (onChange) {
