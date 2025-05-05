@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import AddCategory from "./AddCategory";
-import { CategoryTable } from "./CategoryTable";
+import AddCategory from "./addCategory";
+import { CategoryTable } from "./categoryTable";
 import data from "./data.json";
 import { InputUI } from "@/components/ui/Input";
 import SelectUI from "@/components/ui/Select";

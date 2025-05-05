@@ -5,7 +5,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/lib/badge";
 import { z } from "zod";
 import { TableUI } from "@/components/ui/Table";
-import EditProduct from "./EditProduct";
+import EditProduct from "./editProduct";
 import { DeleteButton, EditButton, ViewButton } from "@/components/ui/Button";
 import { useTranslation } from 'react-i18next';
 

@@ -2,17 +2,9 @@
 
 import { useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { Button } from "@/components/lib/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/lib/dropdown-menu";
-import { MoreVerticalIcon } from "lucide-react";
 import { z } from "zod";
 import { TableUI } from "@/components/ui/Table";
-import EditCategory from "./EditCategory";
+import EditCategory from "./editCategory";
 import { Badge } from "@/components/lib/badge";
 import { useTranslation } from "react-i18next";
 import { DeleteButton, EditButton, ViewButton } from "@/components/ui/Button";

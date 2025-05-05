@@ -1,5 +1,5 @@
-import AddProduct from "./AddProduct";
-import { ProductTable } from "./ProductTable";
+import AddProduct from "./addProduct";
+import { ProductTable } from "./productTable";
 import data from "./data.json";
 import SelectUI from "@/components/ui/Select";
 import { categoryOptions, statusOptions } from "@/constants/product.constant";
