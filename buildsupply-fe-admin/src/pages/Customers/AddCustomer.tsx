@@ -70,7 +70,6 @@ export default function AddCustomer() {
           <SelectUI
             label="Trạng Thái"
             placeholder="Chọn trạng thái"
-            selectLabel="Trạng Thái"
             options={customerStatusOptions}
             className="grid grid-cols-4 items-center gap-4"
           />

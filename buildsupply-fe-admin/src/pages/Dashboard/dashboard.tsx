@@ -1,5 +1,5 @@
 import { BarChartLabel } from "@/components/lib/barChart";
-import { SectionCards } from "./sectionCards";
+import { SectionCards } from "./SectionCards";
 import { DataTable } from "./dataTable";
 import data from "./data.json";
 

@@ -2,18 +2,12 @@
 
 import { useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { Button } from "@/components/lib/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/lib/dropdown-menu";
-import { MoreVerticalIcon } from "lucide-react";
 import { z } from "zod";
 import { TableUI } from "@/components/ui/Table";
-import EditCategory from "./EditCategory";
+import EditCategory from "./editCategory";
 import { Badge } from "@/components/lib/badge";
+import { useTranslation } from "react-i18next";
+import { DeleteButton, EditButton, ViewButton } from "@/components/ui/Button";
 // Define the schema for the product table
 export const schema = z.object({
   id: z.number(),
@@ -35,6 +29,7 @@ export function CategoryTable({
 }: {
   data: z.infer<typeof schema>[];
 }) {
+    const { t } = useTranslation();
   const [data, setData] = useState(initialData);
   const [openEditSheet, setOpenEditSheet] = useState<boolean>(false);
 
@@ -49,23 +44,23 @@ export function CategoryTable({
   const columns: ColumnDef<z.infer<typeof schema>>[] = [
     {
       accessorKey: "name",
-      header: "Tên sản phẩm",
+      header: t('categoryPage.name'),
       cell: ({ row }) => <span>{row.original.name}</span>,
     },
     {
       accessorKey: "image",
-      header: "Hình ảnh",
+      header: t('image'),
       cell: ({ row }) => <span>{row.original.image}</span>,
       maxSize: 20,
     },
     {
       accessorKey: "slug",
-      header: "Tag",
+      header: t('categoryPage.tag'),
       cell: ({ row }) => <span>{row.original.slug}</span>,
     },
     {
       accessorKey: "status",
-      header: "Trạng thái",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge
           variant={row.original.status === "active" ? "new" : "destructive"}
@@ -76,42 +71,28 @@ export function CategoryTable({
     },
     {
       accessorKey: "description",
-      header: "Description",
+      header: t('description'),
       cell: ({ row }) => <span>{row.original.description}</span>,
     },
     {
       accessorKey: "created_at",
-      header: "Ngày tạo",
+      header: t('created_at'),
       cell: ({ row }) => <span>{row.original.created_at}</span>,
     },
     {
       accessorKey: "updated_at",
-      header: "Ngày cập nhật",
+      header: t('updated_at'),
       cell: ({ row }) => <span>{row.original.updated_at}</span>,
     },
     {
       id: "actions",
-      header: "Hành động",
+      header: t('action'),
       cell: ({ row }) => (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <MoreVerticalIcon />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem
-              onClick={() => handleEditProduct(row.original.id)}
-            >
-              Sửa thông tin
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              onClick={() => console.log("Delete", row.original.id)}
-            >
-              Xóa
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex gap-2 items-center justify-center">
+          <ViewButton/>
+          <EditButton onClick={() => handleEditProduct(row.original.id)} />
+          <DeleteButton/>
+        </div>
       ),
     },
   ];

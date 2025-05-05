@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/lib/select";
-import AddProduct from "./addAccount";
+import AddProduct from "./AddAccount";
 import { AccountTable } from "./AccountTable";
 import data from "./data.json";
 

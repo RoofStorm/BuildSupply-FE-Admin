@@ -108,9 +108,7 @@ export default function OrderTab() {
             className="grid w-full md:w-1/2 items-center gap-1.5 "
           />
           <SelectUI
-            placeholder="Chọn Trạng thái"
-            selectLabel="Trạng thái"
-            label="Danh mục"
+            label="Trạng thái"
             options={orderStatusOptions}
             className="gap-1.5 grid"
           />

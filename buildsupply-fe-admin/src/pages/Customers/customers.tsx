@@ -28,7 +28,6 @@ export default function Customers() {
           {/* Filter by Category */}
           <SelectUI
             placeholder="Chọn loại khách hàng"
-            selectLabel="Trạng thái khách hàng"
             label="Trang thái"
             options={customerStatusOptions}
             className="gap-1.5 grid"

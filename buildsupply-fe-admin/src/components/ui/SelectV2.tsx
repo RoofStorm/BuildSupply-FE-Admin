@@ -10,7 +10,6 @@ import {
 } from "@/components/lib/select";
 import { Label } from "@/components/lib/label";
 import { Button } from "../lib/button";
-import { useTranslation } from "react-i18next";
 
 interface SelectUIOptions {
   value: string;
@@ -26,26 +25,28 @@ interface SelectUIProps {
   width?: string;
   className?: string;
   selectClassName?: string;
-  value?:string | undefined;
+  value?: string | undefined;
   onChange?: (value: string) => void;
+  required?: boolean;
   defaultValue?: string | undefined;
 }
 
-export default function SelectUI({
+export default function SelectUIv2({
   placeholder = "",
   options = [],
   label = "",
   id = "",
   disabled = false,
-  width = "w-[280px]",
+  width = "w-full",
   className = "gap-1.5 grid",
   selectClassName = "",
   value,
   onChange,
+  required = false,
   defaultValue,
 }: SelectUIProps) {
-  const { t } = useTranslation();
-  if (!placeholder) placeholder = `${t('select')} ${label.toLocaleLowerCase()}`;
+
+  if (!placeholder) placeholder = `Chọn ${label.toLocaleLowerCase()}`;
 
   const handleChange = (newValue: string) => {
     if (onChange) {
@@ -60,27 +61,27 @@ export default function SelectUI({
 
   return (
     <div className={`${className}`}>
-      {label && 
       <Label htmlFor={id} className="text-right text-nowrap">
         {label}
       </Label>
-      }
-      <Select disabled={disabled} defaultValue={defaultValue} value={value} onValueChange={handleChange}>
-        <SelectTrigger className={`${width} ${selectClassName}`}>
-          <SelectValue placeholder={placeholder} />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectLabel>{label}</SelectLabel>
-            {options.map((option) => (
-              <SelectItem key={option.value} value={option.value} className="cursor-pointer hover:bg-gray-100 ">
-                {option.label}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-          <SelectSeparator />
+      <div className={`${selectClassName} flex w-full gap-1 `}>
+        <Select disabled={disabled} value={value} onValueChange={handleChange} required={required} defaultValue={defaultValue} >
+          <SelectTrigger className={`${width}`}>
+            <SelectValue placeholder={placeholder} />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>{label}</SelectLabel>
+              {options.map((option) => (
+                <SelectItem key={option.value} value={option.value} className="cursor-pointer hover:bg-gray-100 ">
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+            {/* <SelectSeparator /> */}
+          </SelectContent>
           <Button
-            className="w-full px-2 hover:bg-gray-500"
+            className="w-auto h-auto px-2 hover:bg-gray-500"
             variant="secondary"
             size="sm"
             onClick={(e) => {
@@ -90,8 +91,8 @@ export default function SelectUI({
           >
             Clear
           </Button>
-        </SelectContent>
-      </Select>
+        </Select>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/lib/badge";
@@ -14,7 +13,7 @@ import {
 import { MoreVerticalIcon } from "lucide-react";
 import { z } from "zod";
 import { TableUI } from "@/components/ui/Table";
-import EditAccount from "./editAccount";
+import EditAccount from "./EditAccount";
 // Define the schema for the product table
 export const schema = z.object({
   id: z.number(),

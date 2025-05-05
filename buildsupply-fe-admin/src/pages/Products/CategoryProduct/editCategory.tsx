@@ -41,8 +41,6 @@ export default function EditCategory({
           />
           <SelectUI
             label="Danh mục cha"
-            placeholder="Chọn danh mục cha"
-            selectLabel="Danh mục cha"
             options={categoryOptions}
             className="grid grid-cols-4 items-center gap-4"
           />

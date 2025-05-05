@@ -5,19 +5,28 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/lib/card";
-import { Input } from "@/components/lib/input";
-import { Label } from "@/components/lib/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/lib/select";
+import { InputUI } from "@/components/ui/Input";
+
+import SelectUI from "@/components/ui/Select";
+import { currencyUnitOptions, languageOptions } from "@/constants/general.constant";
+import { useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
+
 
 function Setting() {
+  const { t, i18n } = useTranslation();
+  const [lng, setLng] = useState('vi')
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
+  useEffect(()=>{
+    if(lng){
+      changeLanguage(lng);
+    }
+  },[lng])
+
   return (
     <div className="flex flex-col gap-4 p-4">
       <h1 className="text-2xl font-bold mb-2">Setting</h1>
@@ -27,42 +36,10 @@ function Setting() {
           <CardDescription></CardDescription>
           <CardContent>
             <div className="grid gap-4 p-2">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="customerName" className="text-right">
-                  Tên cửa hàng
-                </Label>
-                <Input
-                  id="customerName"
-                  placeholder="Nhập tên cửa hàng"
-                  className="col-span-3"
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="customerName" className="text-right">
-                  Logo
-                </Label>
-                <Input id="storeImg" type="file" className="col-span-3" />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="customerName" className="text-right">
-                  Địa chỉ
-                </Label>
-                <Input
-                  id="address"
-                  placeholder="Nhập địa chỉ cửa hàng"
-                  className="col-span-3"
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="customerName" className="text-right">
-                  SĐT
-                </Label>
-                <Input
-                  id="phone"
-                  placeholder="Nhập sđt"
-                  className="col-span-3"
-                />
-              </div>
+              <InputUI label="Tên cửa hàng" placeholder="Nhập tên cửa hàng" id="customerName" inputClassName="col-span-3" className="grid grid-cols-4 items-center gap-4" />
+              <InputUI label="Logo" type="file" id="storeImg" inputClassName="col-span-3" className="grid grid-cols-4 items-center gap-4" />
+              <InputUI label="Địa chỉ" placeholder="Nhập địa chỉ cửa hàng" id="address" inputClassName="col-span-3" className="grid grid-cols-4 items-center gap-4" />
+              <InputUI label="SĐT" placeholder="Nhập sđt" id="phone" inputClassName="col-span-3" className="grid grid-cols-4 items-center gap-4" />
             </div>
           </CardContent>
         </CardHeader>
@@ -73,41 +50,9 @@ function Setting() {
           <CardDescription></CardDescription>
           <CardContent>
             <div className="grid gap-4 p-2">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="customerName" className="text-right">
-                  Đơn vị tiền tệ
-                </Label>
-                <Select>
-                  <SelectTrigger className="w-[280px]">
-                    <SelectValue placeholder="Chọn đơn vị tiền tệ" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectLabel>Đơn vị tiền tệ</SelectLabel>
-                      <SelectItem value="tools">VNĐ</SelectItem>
-                      <SelectItem value="electronics">USD</SelectItem>
-                      <SelectItem value="furniture">Euro</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="customerName" className="text-right">
-                  Ngôn ngữ
-                </Label>
-                <Select>
-                  <SelectTrigger className="w-[280px]">
-                    <SelectValue placeholder="Chọn ngôn ngữ" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectLabel>Ngôn ngữ</SelectLabel>
-                      <SelectItem value="vietnamese">vietnamese</SelectItem>
-                      <SelectItem value="english">English</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </div>
+              <SelectUI label="Đơn vị tiền tệ" options={currencyUnitOptions} className="grid grid-cols-4 items-center gap-4" />
+              <SelectUI label="Ngôn ngữ" options={languageOptions} value={lng} onChange={setLng} className="grid grid-cols-4 items-center gap-4" />
+              <h1>{t('welcome')}</h1>
             </div>
           </CardContent>
         </CardHeader>

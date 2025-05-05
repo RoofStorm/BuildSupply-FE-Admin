@@ -10,6 +10,9 @@ import { Input } from "@/components/lib/input";
 import { Label } from "@/components/lib/label";
 import { Button } from "@/components/lib/button";
 import { useState } from "react";
+import { useApiError } from '../hooks/useApiError';
+import { getCurrentUser } from '../services/userService';
+import { useQuery } from '@tanstack/react-query';
 
 const Profile = ({
   open = false,
@@ -21,6 +24,19 @@ const Profile = ({
   // State to manage form inputs
   const [name, setName] = useState("BuildSupply");
   const [username, setUsername] = useState("@buildsupply");
+
+  const handleApiError = useApiError();
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['currentUser'],
+    queryFn: getCurrentUser,
+  });
+
+  if (error) {
+    handleApiError(error);
+  }
+
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <Dialog open={open} onOpenChange={setOpen} modal>
